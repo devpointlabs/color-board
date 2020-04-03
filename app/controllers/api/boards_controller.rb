@@ -7,7 +7,7 @@ class Api::BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     render json: @board
-  end
+  end 
 
   def userBoards
     render json: current_user.boards
