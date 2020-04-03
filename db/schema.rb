@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_015628) do
+ActiveRecord::Schema.define(version: 2020_04_03_005409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.string "desc"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "colorName"
+    t.string "hex"
+    t.bigint "board_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_colors_on_board_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "board_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_likes_on_board_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -45,4 +72,8 @@ ActiveRecord::Schema.define(version: 2020_04_02_015628) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "boards", "users"
+  add_foreign_key "colors", "boards"
+  add_foreign_key "likes", "boards"
+  add_foreign_key "likes", "users"
 end

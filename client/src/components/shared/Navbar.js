@@ -9,12 +9,14 @@ class Navbar extends Component {
     const { auth: { user, handleLogout }, location } = this.props
     if (user) {
       return (
+        <>
         <Menu.Menu position='right'>
           <Menu.Item
             name='logout'
             onClick={() => handleLogout(this.props.history)}
           />
-        </Menu.Menu>
+          </Menu.Menu>
+        </>
       )
     } else {
       return(
@@ -37,6 +39,7 @@ class Navbar extends Component {
       )
     }
   }
+  
   render() {
     return(
       <div>
