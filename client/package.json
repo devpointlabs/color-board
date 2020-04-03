@@ -13,9 +13,7 @@
     "react-dom": "^16.13.1",
     "react-materialize": "^3.8.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "react-scripts": "3.4.1"
   },
   "proxy": "http://localhost:3001",
   "scripts": {
