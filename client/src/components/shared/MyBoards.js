@@ -1,12 +1,19 @@
-import React from 'react';
-import { Header, } from 'semantic-ui-react';
+import React, { Component } from 'react';
 
-const MyBoards = () => (
-  <Header 
-    as="h3" 
-    textAlign="center">
-    My Boards
-  </Header>
-
-)
+class MyBoards extends Component {
+  render() {
+    let style = {
+      textAlign: 'center',
+      fontSize: '2rem',
+      lineHeight: '2.3rem',
+      marginTop: '1rem'
+    }
+    let header = 'My Boards';
+    return (
+      <div style={style}>
+        <span>{header}</span>
+      </div>
+    )
+  }
+}
 export default MyBoards;

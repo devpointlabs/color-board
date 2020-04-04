@@ -1,12 +1,26 @@
-import React from 'react';
-import { Link, } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-const NoMatch = () => (
-  <Header 
-    as="h3" 
-    textAlign="center">
-    Page not found return<Link to="/"> Home</Link>
-  </Header>
-)
+class NoMatch extends Component {
+  render() {
+    let style = {
+      textAlign: 'center',
+      fontSize: '2rem',
+      lineHeight: '2.3rem',
+      marginTop: '1rem'
+    }
+    let header = 'Bro, where you at?';
+    return (
+      <div>
+        <div style={style}>
+          <span>{header}</span>
+        </div>
+        
+        <span>
+          Page not found return<Link to="/"> Home</Link>
+        </span>
+      </div>
+    )
+  }
+}
 export default NoMatch;

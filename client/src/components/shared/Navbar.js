@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 class Navbar extends Component {
@@ -10,49 +9,64 @@ class Navbar extends Component {
     if (user) {
       return (
         <>
-        <Menu.Menu position='right'>
-          <Menu.Item
+        <div>
+          <span>
             name='logout'
             onClick={() => handleLogout(this.props.history)}
-          />
-          </Menu.Menu>
+          </span>
+          </div>
         </>
       )
     } else {
       return(
-        <Menu.Menu position='right'>
+        <div style={{
+          marginTop: '-33px', 
+          marginLeft: '20rem',
+          textAlign: 'center'
+        }}>
           <Link to='/login'>
-            <Menu.Item
+            <button
               id='login'
               name='login'
-              active={location.pathname === '/login'}
-            />
+              className='btn-small'
+              style={{marginRight: '0.8rem'}}
+              active={location.pathname === '/login'}>
+              Login
+            </button>
           </Link>
           <Link to='/register'>
-            <Menu.Item
+            <button
               id='register'
               name='register'
-              active={location.pathname === '/register'}
-            />
+              className='btn-small'
+              active={location.pathname === '/register'}>
+              Register
+            </button>
           </Link>
-        </Menu.Menu>
+        </div>
       )
     }
   }
   
   render() {
+    
     return(
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-            />
-          </Link>
-            { this.rightNavItems() }
-        </Menu>
+      <div style={{
+        marginTop: '1.5rem',
+        marginLeft: '-14rem',
+        marginBottom: '1rem', 
+        textAlign: 'center'
+      }}>
+        <Link to='/'>
+          <button
+            name='home'
+            id='home'
+            className='btn-small'
+            active={this.props.location.pathname === '/'}>
+            Home
+            </button>
+        </Link>
+        { this.rightNavItems() }
       </div>
     )
   }
