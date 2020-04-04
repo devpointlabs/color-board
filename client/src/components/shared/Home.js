@@ -1,12 +1,18 @@
-import React from 'react';
-import { Header, } from 'semantic-ui-react';
+import React, { Component } from 'react';
 
-const Home = () => (
-  <Header 
-    as="h3" 
-    textAlign="center">
-    Color Board Home Page
-  </Header>
-
-)
+class Home extends Component {
+  render() {
+    let style = {
+      textAlign: 'center',
+      fontSize: '2rem',
+      lineHeight: '2.3rem'
+    }
+    let header = 'Welcome to your Color Board';
+    return (
+      <div style={style}>
+        <span>{header}</span>
+      </div>
+    )
+  }
+}
 export default Home;

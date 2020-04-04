@@ -9,6 +9,7 @@ import Login from './components/auth/Login';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import MyBoards from './components/shared/MyBoards';
+import 'materialize-css/dist/css/materialize.min.css';
 
 const App = () => (
   <>

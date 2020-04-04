@@ -9,9 +9,10 @@
     "axios": "^0.19.2",
     "devise-axios": "^1.0.24",
     "materialize-css": "^1.0.0-rc.2",
+    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-materialize": "^3.8.0",
+    "react-materialize": "^3.8.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
@@ -36,5 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {}
 }
