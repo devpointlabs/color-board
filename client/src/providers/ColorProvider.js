@@ -5,10 +5,10 @@ const ColorContext = React.createContext();
 
 export const ColorConsumer = ColorContext.Consumer;
 
-class ColorProvider extends React.Component {
+class ColorProvider extend Component {
     state = {colors: []}
 
-    fetchColors= (boardId) => {
+    fetchColors = (boardId) => {
         axios.get(`/api/boards/${boardId}/colors`)
         .then( res => {
             this.setState({ colors: res.data })
@@ -18,19 +18,19 @@ class ColorProvider extends React.Component {
         })
     }
 
-    addColor= (boardId, history) => {
+    addColor = (boardId, history) => {
         axios.post(`/api/boards/${boardId}/colors`)
         .then( res => {
             const { colors } = this.state;
             this.setState([...colors, res.data])
-            history.push(`/api/boards/${boardId}`)
+            history.push('/')
         })
         .catch( err => {
             console.log(err)
         })
     }
 
-    updateColor= ( boardId, colorId, history ) => {
+    updateColor = ( boardId, colorId, history ) => {
         axios.put(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
             const { colors } = this.state.colors.map( c => {
@@ -39,18 +39,18 @@ class ColorProvider extends React.Component {
                 return c;
             });
             this.setState({ colors });
-            history.push(`/api/boards/${boardId}/colors/${colorId}`)
+            history.push('/')
         })
         .catch( err => {
             console.log(err)
         })
     }
 
-    deleteColor= ( boardId, colorId, history ) => {
+    deleteColor = ( boardId, colorId, history ) => {
         axios.delete(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
             this.setState({ colors: colors.filter(c=>c.id!==id)})
-            history.push(`/api/boards/${boardId}/colors/`)
+            history.push('/')
         })
         .catch( err => {
             console.log(err)
