@@ -10,6 +10,7 @@ import ColorProvider from './providers/ColorProvider';
 import BoardProvider from './providers/BoardProvider';
 
 
+
 initMiddleware();
 
 ReactDOM.render(
