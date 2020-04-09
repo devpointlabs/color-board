@@ -49,7 +49,7 @@ class ColorProvider extends Component {
     deleteColor = ( boardId, colorId, history ) => {
         axios.delete(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
-            this.setState({ colors: this.colors.filter(c=>c.colorId!==colorId)})
+            this.setState({ colors: this.state.colors.filter(c=>c.colorId!==colorId)})
             history.push('/')
         })
         .catch( err => {
