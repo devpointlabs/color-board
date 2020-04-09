@@ -14,38 +14,38 @@ const Styles = styled.div`
 }
 `
 class Explore extends Component {
-state = { boards: [], showLoadMore: true }
+	state = { boards: [], showLoadMore: true }
 
-toggleLoadMore = () => this.setState({ showLoadMore: !this.state.showLoadMore })
+	toggleLoadMore = () => this.setState({ showLoadMore: !this.state.showLoadMore })
 
-loadMoreBoard = () => {
-  axios.post('/api/boards') //only bring in 8 more (uniqueId)
-  .then( res => {
-    this.setState({ boards: [ ...this.state.boards, res.data ] })
-  })
-  .catch( err => {
-    console.log(err)
-  })
-}
-
-	render() {
-    return (
-      <Styles>
-        <div>
-          {
-            this.state.boards.map( b =>
-              <Link to="/boards/${id}"> <Board {...b} /></Link>
-              )
-            }
-            <Button className="center" 
-              onClick={this.loadMoreBoard}>
-              Load More
-              </Button>
-        </div>
-      </Styles>
-    )
+	loadMoreBoard = () => {
+	  axios.post('/api/boards') //only bring in 8 more (uniqueId)
+	  .then( res => {
+	    this.setState({ boards: [ ...this.state.boards, res.data ] })
+	  })
+	  .catch( err => {
+	    console.log(err)
+	  })
 	}
 
+	render() {
+	    return (
+	      <Styles>
+		<div>
+		  {
+		    this.props.boards.map( b =>
+		      <Link to="/boards/${id}"> <Board {...b} /></Link>
+		      )
+		    }
+		    <Button className="center" 
+		      onClick={this.loadMoreBoard}
+		    >
+		      Load More
+		    </Button>
+		</div>
+	      </Styles>
+	    )
+	}
 }
 
 const ConnectedExplore = (props) => (
