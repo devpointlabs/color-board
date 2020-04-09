@@ -7,19 +7,19 @@ import Board from './Board'
 import styled from 'styled-components'
 
 const Styles = styled.div`
-
-.center {
-  margin: 0 auto;
-  float: left;
-}
+	.center {
+		margin: 0 auto;
+		float: left;
+	}
 `
+
 class Explore extends Component {
 	state = { boards: [], showLoadMore: true }
 
 	toggleLoadMore = () => this.setState({ showLoadMore: !this.state.showLoadMore })
 
 	loadMoreBoard = () => {
-	  axios.post('/api/boards') //only bring in 8 more (uniqueId)
+	  axios.get('/api/boards') //only bring in 8 more (uniqueId)
 	  .then( res => {
 	    this.setState({ boards: [ ...this.state.boards, res.data ] })
 	  })
@@ -29,22 +29,24 @@ class Explore extends Component {
 	}
 
 	render() {
-	    return (
-	      <Styles>
-		<div>
-		   {
-		    this.props.boards.map( b =>
-		      <Link to="/boards/${id}"> <Board {...b} /></Link>
-		      )
-		    }
-		    <Button className="center" 
-		      onClick={this.loadMoreBoard}
-		    >
-		      Load More
-		    </Button>
-		</div>
-	      </Styles>
-	    )
+		return (
+			<Styles>
+				<div>
+					{ 
+						this.props.boards.map( b =>
+							<Link to={`/boards/${b.id}`}> 
+								<Board {...b} />
+							</Link>
+							)
+					}
+					<Button className="center" 
+						onClick={this.loadMoreBoard}
+					>
+						Load More
+					</Button>
+				</div>
+			</Styles>
+		)
 	}
 }
 
