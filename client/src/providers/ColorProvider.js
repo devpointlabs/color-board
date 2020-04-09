@@ -34,7 +34,7 @@ class ColorProvider extends Component {
         axios.put(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
             const { colors } = this.state.colors.map( c => {
-                if(c.colorId === colorId )
+                if(c.id === colorId )
                     return res.data;
                 return c;
             });
