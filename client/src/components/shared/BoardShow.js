@@ -4,8 +4,8 @@ import { BoardConsumer } from '../../providers/BoardProvider';
 class BoardShow extends Component {
   
   componentDidMount() {
-		this.props.getBoard(this.props.id)
-	}
+	this.props.getBoard(this.props.id)
+  }
   
     render() {
       const { title, desc } = this.props.board
