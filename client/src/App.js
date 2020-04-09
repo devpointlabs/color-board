@@ -19,8 +19,8 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
-        <ProtectedRoute exact path='/my_boards' render={MyBoards}/>
-        <Route exact path='/newBoard' render={BoardForm}/> 
+        <ProtectedRoute exact path='/my_boards' component={MyBoards}/>
+        <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />
       </Switch>
     </FetchUser>
