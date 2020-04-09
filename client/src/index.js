@@ -6,7 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
-import { ColorProvider } from './providers/ColorProvider';
+import ColorProvider from './providers/ColorProvider';
 
 
 initMiddleware();
