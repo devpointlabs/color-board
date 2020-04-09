@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'devise-axios';
+import axios from 'axios';
 
 const BoardContext = React.createContext()
 export const BoardConsumer = BoardContext.Consumer;
 
 class BoardProvider extends Component {
-  state = { boards: [] }
+  state = { boards: [], board: {} }
 
   componentDidMount() {
     axios.get('/api/boards')
@@ -17,6 +17,16 @@ class BoardProvider extends Component {
     })
   }
 
+  getBoard = (id) => {
+    axios.get(`/api/boards/${id}`)
+    .then( res => {
+      this.setState({ board: res.data })
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
+  
   addBoard = (board) => {
     axios.post('/api/boards', board)
     .then( res => {
@@ -61,7 +71,8 @@ class BoardProvider extends Component {
         componentDidMount: this.componentDidMount,
         addBoard: this.addBoard,
         updateBoard: this.updateBoard,
-        deleteBoard: this.deleteBoard
+        deleteBoard: this.deleteBoard,
+        getBoard: this.getBoard,
       }}>
         { this.props.children }
       </BoardContext.Provider>

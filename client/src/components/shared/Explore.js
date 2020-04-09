@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import BoardProvider from '../../providers/BoardProvider'
+import { BoardConsumer } from '../../providers/BoardProvider'
 import { Button } from 'react-materialize';
 import axios from 'axios';
 
-class ExplorePage extends Component {
+class Explore extends Component {
 state = { boards: [], showLoadMore: true }
-
-componentDidMount = () => {
-  axios.get('/api/boards')
-  .then( res => {
-    this.setState({ boards: res.data })  //add first 8 boards
-  })
-  .catch( err => {
-    console.log(err)
-  })
-}
 
 toggleLoadMore = () => this.setState({ showLoadMore: !this.state.showLoadMore })
 
@@ -30,18 +20,27 @@ loadMoreBoard = () => {
 }
 
 	render() {
-			return (
-					<div>
-            {
-              boards.map( b =>
-                <Board />
-                )
-            }
-							<Button onClick={this.loadMoreBoard}>Load More</Button>
-					</div>
-			)
+    return (
+      <div>
+        {
+          boards.map( b =>
+            <Board {...b} />
+            )
+        }
+          <Button onClick={this.loadMoreBoard}>Load More</Button>
+      </div>
+    )
 	}
 
 }
 
-export default ExplorePage;
+const ConnectedExplore = (props) => (
+  <BoardConsumer> 
+    {
+      value =>
+      <Explore {...props} value={value} />
+    }
+  </BoardConsumer>
+)
+
+export default ConnectedExplore;

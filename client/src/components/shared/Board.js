@@ -1,12 +1,10 @@
 import React from 'react';
 
-const Board = () => (
-  render() {
-    const { title, desc } = this.props
-    return(
-
-    )
-  }
+const Board = ({ title, desc }) => (
+  <>
+    <h1>{title}</h1>
+    <h3>{desc}</h3>
+  </>
 )
 
 
