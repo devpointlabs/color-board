@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'devise-axios';
+import axios from 'axios';
 
 const BoardContext = React.createContext()
 export const BoardConsumer = BoardContext.Consumer;
