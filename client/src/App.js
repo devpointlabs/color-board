@@ -8,6 +8,8 @@ import Login from './components/auth/Login';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import MyBoards from './components/shared/MyBoards';
+import ConnectedExplore from './components/shared/Explore';
+import BoardShow from './components/shared/BoardShow';
 
 const App = () => (
   <>
@@ -17,6 +19,8 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/explore' render={ConnectedExplore}/>
+        <Route exact path='/boards/:id' render={BoardShow}/>
         <ProtectedRoute exact path='/my_boards' render={MyBoards}/>
         <Route component={NoMatch} />
       </Switch>
