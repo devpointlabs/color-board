@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const ColorContext = React.createContext();
-
 export const ColorConsumer = ColorContext.Consumer;
 
 class ColorProvider extends Component {
