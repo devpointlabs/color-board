@@ -32,7 +32,7 @@ class Explore extends Component {
 	    return (
 	      <Styles>
 		<div>
-		  {
+		   {
 		    this.props.boards.map( b =>
 		      <Link to="/boards/${id}"> <Board {...b} /></Link>
 		      )
@@ -52,7 +52,7 @@ const ConnectedExplore = (props) => (
   <BoardConsumer> 
     {
       value =>
-      <Explore {...props} value={value} />
+      <Explore {...props} {...value} />
     }
   </BoardConsumer>
 )
