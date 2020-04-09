@@ -16,8 +16,11 @@ class Navbar extends Component {
             </Link>
           </button>
           <span>
-            name='logout'
-            onClick={() => handleLogout(this.props.history)}
+            <button 
+              onClick={() => handleLogout(this.props.history)}
+            >
+              Logout
+            </button>
           </span>
           </div>
         </>

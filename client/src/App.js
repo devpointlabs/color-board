@@ -20,7 +20,7 @@ const App = () => (
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
         <ProtectedRoute exact path='/my_boards' render={MyBoards}/>
-        <ProtectedRoute exact path='/newBoard' render={BoardForm}/> 
+        <Route exact path='/newBoard' render={BoardForm}/> 
         <Route component={NoMatch} />
       </Switch>
     </FetchUser>
