@@ -10,6 +10,7 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import MyBoards from './components/shared/MyBoards';
 import 'materialize-css/dist/css/materialize.min.css';
+import BoardForm from './components/shared/board/BoardForm'
 
 const App = () => (
   <>
