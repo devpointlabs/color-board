@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { BoardConsumer } from '../../providers/BoardProvider'
 import { Button } from 'react-materialize';
-import axios from 'axios';
 import Board from './Board'
 import styled from 'styled-components'
 
@@ -13,50 +12,26 @@ const Styles = styled.div`
 	}
 `
 
-class Explore extends Component {
-	state = { boards: [], showLoadMore: true }
-
-	toggleLoadMore = () => this.setState({ showLoadMore: !this.state.showLoadMore })
-
-	loadMoreBoard = () => {
-	  axios.get('/api/boards') //only bring in 8 more (uniqueId)
-	  .then( res => {
-	    this.setState({ boards: [ ...this.state.boards, res.data ] })
-	  })
-	  .catch( err => {
-	    console.log(err)
-	  })
-	}
-
-	render() {
-		return (
+const Explore = () => (
+	<BoardConsumer> 
+    {
+			value =>
 			<Styles>
 				<div>
 					{ 
-						this.props.boards.map( b =>
+						value.boards.map( b =>
 							<Link to={`/boards/${b.id}`}> 
 								<Board {...b} />
 							</Link>
 							)
 					}
-					<Button className="center" 
-						onClick={this.loadMoreBoard}
-					>
+					<Button className="center">
 						Load More
 					</Button>
 				</div>
 			</Styles>
-		)
-	}
-}
-
-const ConnectedExplore = (props) => (
-  <BoardConsumer> 
-    {
-      value =>
-      <Explore {...props} {...value} />
-    }
-  </BoardConsumer>
+		}
+	</BoardConsumer>
 )
 
-export default ConnectedExplore;
+export default Explore;

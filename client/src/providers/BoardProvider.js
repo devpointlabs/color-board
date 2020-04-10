@@ -32,6 +32,7 @@ class BoardProvider extends Component {
     .then( res => {
       const { boards } = this.state;
       this.setState({ boards: [...boards, res.data]})
+      window.location.href = `/boards/${res.data.id}`
     })
     .catch( err => {
       console.log(err);
@@ -47,6 +48,7 @@ class BoardProvider extends Component {
         return b;
       });
       this.setState({ boards });
+      window.location.href = `/boards/${res.data.id}`
     })
     .catch( err => {
       console.log(err);
