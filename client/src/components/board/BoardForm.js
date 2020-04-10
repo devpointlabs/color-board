@@ -5,8 +5,8 @@ class BoardForm extends Component {
 	state = { title: "", desc: "" }
 
 	componentDidMount() {
-		if (this.props.id) {
-			const { title, desc } = this.props
+		if (this.props.board) {
+			const { title, desc } = this.props.board
 			this.setState({ title, desc })
 		}
 	}
@@ -18,8 +18,8 @@ class BoardForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		if(this.props.id) {
-			this.props.updateBoard(this.props.id)
+		if(this.props.board) {
+			this.props.updateBoard(this.props.board.id, this.state)
 			this.props.toggleForm()
 		} else {
 			this.props.addBoard(this.state)
