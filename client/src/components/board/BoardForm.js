@@ -4,6 +4,13 @@ import { BoardConsumer } from "../../providers/BoardProvider";
 class BoardForm extends Component {
 	state = { title: "", desc: "" }
 
+	componentDidMount() {
+		if (this.props.board) {
+			const { title, desc } = this.props.board
+			this.setState({ title, desc })
+		}
+	}
+
 	handleChange = (e) => {
 		const { name, value } = e.target
 		this.setState({ [name]: value })
@@ -11,7 +18,12 @@ class BoardForm extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.addBoard(this.state)
+		if(this.props.board) {
+			this.props.updateBoard(this.props.board.id, this.state)
+			this.props.toggleForm()
+		} else {
+			this.props.addBoard(this.state)
+		}
 		this.setState({ title: '', desc: '' })
 	}
 
