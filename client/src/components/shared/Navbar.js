@@ -10,9 +10,26 @@ class Navbar extends Component {
       return (
         <>
         <div>
+          <Link to='/my_boards'>
+            <button
+              name='my_boards'
+              id='my_boards'
+              className='btn-small'
+              active={this.props.location.pathname === '/my_boards'}>
+              My Boards
+              </button>
+          </Link>
+          <button>
+            <Link to="/newBoard"> 
+            New Board
+            </Link>
+          </button>
           <span>
-            name='logout'
-            onClick={() => handleLogout(this.props.history)}
+            <button 
+              onClick={() => handleLogout(this.props.history)}
+            >
+              Logout
+            </button>
           </span>
           </div>
         </>
@@ -49,7 +66,6 @@ class Navbar extends Component {
   }
   
   render() {
-    
     return(
       <div style={{
         marginTop: '1.5rem',
@@ -57,13 +73,13 @@ class Navbar extends Component {
         marginBottom: '1rem', 
         textAlign: 'center'
       }}>
-        <Link to='/'>
+        <Link to='/explore'>
           <button
-            name='home'
-            id='home'
+            name='explore'
+            id='explore'
             className='btn-small'
-            active={this.props.location.pathname === '/'}>
-            Home
+            active={this.props.location.pathname === '/explore'}>
+            explore
             </button>
         </Link>
         { this.rightNavItems() }

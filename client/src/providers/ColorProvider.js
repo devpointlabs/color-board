@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const ColorContext = React.createContext();
-
 export const ColorConsumer = ColorContext.Consumer;
 
 class ColorProvider extends Component {
@@ -34,7 +33,7 @@ class ColorProvider extends Component {
         axios.put(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
             const { colors } = this.state.colors.map( c => {
-                if(c.colorId === colorId )
+                if(c.id === colorId )
                     return res.data;
                 return c;
             });
@@ -49,7 +48,7 @@ class ColorProvider extends Component {
     deleteColor = ( boardId, colorId, history ) => {
         axios.delete(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
-            this.setState({ colors: this.state.colors.filter(c=>c.colorId!==colorId)})
+            this.setState({ colors: this.state.colors.filter(c => c.id !== colorId)})
             history.push('/')
         })
         .catch( err => {

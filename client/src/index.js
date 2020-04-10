@@ -8,8 +8,7 @@ import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
 import ColorProvider from './providers/ColorProvider';
 import BoardProvider from './providers/BoardProvider';
-
-
+import 'materialize-css/dist/css/materialize.min.css';
 
 initMiddleware();
 
