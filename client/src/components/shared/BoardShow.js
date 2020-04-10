@@ -18,7 +18,7 @@ class BoardShow extends Component {
         showForm ? 
         <BoardForm {...this.props} toggleForm={this.toggleForm} />
         :
-        <button>
+        <button onClick={() => this.toggleForm()}>
           Edit
         </button>
       }
