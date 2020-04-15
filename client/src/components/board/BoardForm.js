@@ -5,7 +5,7 @@ class BoardForm extends Component {
 	state = { title: "", desc: "" }
 
 	componentDidMount() {
-		if (this.props.board) {
+		if (this.props.board.id) {
 			const { title, desc } = this.props.board
 			this.setState({ title, desc })
 		}
