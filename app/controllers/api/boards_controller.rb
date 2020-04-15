@@ -32,7 +32,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def destroy
-    Board.find(params[:id]).destroy 
+    Board.find(params[:id]).discard
     render json: { message: 'Board Deleted'}
   end
 

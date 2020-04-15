@@ -60,6 +60,7 @@ class BoardProvider extends Component {
       .then( res => {
         const { boards } = this.state;
         this.setState({ boards: boards.filter(b => b.id !== id) })
+        window.location.href = '/'
       })
       .catch( err => {
         console.log(err);
