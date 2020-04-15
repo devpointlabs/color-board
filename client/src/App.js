@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './components/shared/MyBoards';
 import NoMatch from './components/shared/NoMatch';
 import Navbar from './components/shared/Navbar';
 import Register from './components/auth/Register'
@@ -11,6 +10,8 @@ import MyBoards from './components/shared/MyBoards';
 import Explore from './components/shared/Explore';
 import BoardShow from './components/shared/BoardShow';
 import BoardForm from './components/board/BoardForm';
+import NewColor from './components/shared/NewColor';
+import ColorForm from './components/shared/ColorForm';
 
 const App = () => (
   <>
@@ -20,8 +21,10 @@ const App = () => (
         <Route exact path='/' component={Explore} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/colorForm' component={ColorForm} />
         <Route exact path='/explore' component={Explore}/>
         <Route exact path='/boards/:id' component={BoardShow}/>
+        <Route exact path='/newColor' component={NewColor}/>
         <ProtectedRoute exact path='/my_boards' component={MyBoards}/>
         <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />
