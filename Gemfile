@@ -23,11 +23,13 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise_token_auth'
+gem 'discard', '~> 1.2'
 
 
 group :development, :test do
   gem 'pry'
   gem 'faker'
+
 end
 
 group :development do
