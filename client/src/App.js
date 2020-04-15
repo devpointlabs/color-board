@@ -11,6 +11,7 @@ import Explore from './components/shared/Explore';
 import BoardShow from './components/shared/BoardShow';
 import BoardForm from './components/board/BoardForm';
 import ConnectedColorForm from './components/shared/ColorForm';
+import ConnectedFolorCorm from './components/shared/FolorCorm';
 
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
         <Route exact path='/explore' component={Explore}/>
         <Route exact path='/boards/:id' component={BoardShow}/>
         <Route exact path='/colorForm' component={ConnectedColorForm}/>
+        <Route exact path='/FolorCorm' component={ConnectedFolorCorm}/>
         <ProtectedRoute exact path='/my_boards' component={MyBoards}/>
         <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />
