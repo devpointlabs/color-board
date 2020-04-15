@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Form, Segment, Header } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import icon from './color-board-ico.png'
 
 class Register extends Component {
   state = { email: '', password: '', passwordConfirmation: '', };
@@ -19,42 +20,120 @@ class Register extends Component {
   }
   render() {
     const { email, password, passwordConfirmation, } = this.state;
+    
+    const styles = {
+      container: {
+        position: 'absolute',
+        top: '45%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      },
+      
+      img: {
+        height: 'auto',
+        width: '23%',
+        position: 'absolute',
+        top: '-18%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+      },
+      
+      header: {
+        textAlign: 'center',
+        fontSize: '20px'
+      },
+      
+      form: {
+        width: '24rem',
+      },
+      
+      input: {
+        borderRadius: '5px',
+        borderBottom: '1px solid lightgrey',
+        boxShadow: '2px 3px 8px 1px lightgrey',
+        height: '3.5rem',
+        fontSize: '23px',
+        paddingLeft: '10px'
+      },
+      
+      label: {
+        fontSize: '12px',
+        margin: '0 0 0.3rem 0'
+      },
+      
+      btn: {
+        marginTop: '1.2rem',
+        width: '24rem',
+        height: '3.5rem',
+        borderRadius: '5px',
+        background: '#D80179',
+        marginLeft: '5px'
+      },
+      
+      ca: {
+        fontSize: '12px',
+        position: 'absolute',
+        top: '108%',
+        left: '53%',
+        transform: 'translate(-50%, -50%)',
+        whiteSpace: 'nowrap'
+      }
+    }
+  
+
+    
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>Register</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Input
-            label="Email"
-            required
-            autoFocus
-            name='email'
-            value={email}
-            placeholder='Email'
-            onChange={this.handleChange}
-          />
-          <Form.Input
-            label="Password"
-            required
-            name='password'
-            value={password}
-            placeholder='Password'
-            type='password'
-            onChange={this.handleChange}
-          />
-          <Form.Input
-            label="Password Confirmation"
-            required
-            name='passwordConfirmation'
-            value={passwordConfirmation}
-            placeholder='Password Confirmation'
-            type='password'
-            onChange={this.handleChange}
-          />
-          <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
-          </Segment>
-        </Form>
-      </Segment>
+      <div>
+      <div style={styles.container}>
+        <img src={icon} style={styles.img}/>
+        <header style={styles.header}>Register to <b>ColorBoard</b></header>
+          <div style={{marginTop: '2rem'}}>
+            <form 
+              onSubmit={this.handleSubmit}
+              style={styles.form}
+            >
+              <p style={styles.label}>Email</p>
+              <input
+                style={styles.input}
+                label="Email"
+                required
+                autoFocus
+                name='email'
+                value={email}
+                onChange={this.handleChange}
+              />
+              <p style={styles.label}>Password</p>
+              <input
+                style={styles.input}
+                label="Password"
+                required
+                name='password'
+                value={password}
+                type='password'
+                onChange={this.handleChange}
+              />
+              <p style={styles.label}>Password confirmation</p>
+              <input
+                style={styles.input}
+                label="Password Confirmation"
+                required
+                name='passwordConfirmation'
+                value={passwordConfirmation}
+                type='password'
+                onChange={this.handleChange}
+              />
+              <div style={{textAlign: 'center'}}>
+                <button style={styles.btn} type='submit'>
+                  <span style={{color: 'white'}}>Submit</span>
+                </button>
+              </div>
+            </form>
+            <span style={styles.ca}>
+              <Link to='/Login' style={{color: '#D80179',}}>Already have an account?</Link>
+            </span>
+          </div>
+        </div>
+      </div>
     )
   }
 }
