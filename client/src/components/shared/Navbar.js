@@ -92,23 +92,23 @@ const styles = {
   logoName: {
     position: 'absolute',
     left: '7rem',
-    top: '4rem',
+    top: '3.2rem',
     fontWeight: 'bold',
     fontSize: '25px',
     fontFamily: 'Rubik',
   },
   logo: {
     height: 'auto',
-    width: '5%',
+    width: '4.8rem',
     position: 'absolute',
-    top: '4.3rem',
+    top: '3.3rem',
     left: '4rem',
     transform: 'translate(-50%, -50%)'
   },
   newBoard: {
     position: 'absolute',
     right: '10rem',
-    top: '3.7rem',
+    top: '2.7rem',
     border: 'none',
     borderRadius: '3px',
     background: '#D80179',
@@ -120,7 +120,7 @@ const styles = {
   myBoards: {
     position: 'absolute',
     right: '24rem',
-    top: '4rem',
+    top: '3rem',
     border: 'none',
     fontSize: '16px',
     fontFamily: 'Rubik',
@@ -132,7 +132,7 @@ const styles = {
     fontFamily: 'Rubik',
     position: 'absolute',
     left: '20rem',
-    top: '3.9rem',
+    top: '2.9rem',
   },
   search: {
     borderRadius: '25px',
@@ -154,13 +154,13 @@ const styles = {
     width: '2.8rem',
     position: 'absolute',
     right: '4.2rem',
-    top: '4.6rem',
+    top: '3.6rem',
     transform: 'translate(-50%, -50%)'
   },
   explore: {
     position: 'absolute',
     right: '19rem',
-    top: '4rem',
+    top: '3rem',
     border: 'none',
     fontSize: '17px',
     fontFamily: 'Rubik',
@@ -172,7 +172,7 @@ const styles = {
     width: '1.9rem',
     position: 'absolute',
     right: '1rem',
-    top: '4.6rem',
+    top: '3.6rem',
     transform: 'translate(-50%, -50%)'
   }
 }
