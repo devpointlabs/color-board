@@ -25,15 +25,18 @@ class BoardShow extends Component {
      </>
     )
   }
-  
+
   render() {
-    const { title, desc } = this.props.board
+    const { title, desc, id } = this.props.board
       return(
         <div>
           <h1>Board Show</h1>
             <h2>{title}</h2>
             <h3>{desc}</h3>
             {this.updateBoard()}
+            <button onClick={() => this.props.deleteBoard(id)}>
+              delete
+            </button>
         </div>
       )
   }
