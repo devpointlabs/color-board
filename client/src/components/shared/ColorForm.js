@@ -1,10 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {ColorConsumer} from '../../providers/ColorProvider';
 
-const ColorForm = ({addColor}) => {
+const ColorForm = ({addColor, updateColor, color}) => {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
+  const [kolor, setKolor] = useState( 
+    { colorName: '',
+      hex: '',
+      board_id: null,
+    } 
+  )
+
+  useEffect(() => {
+    if (color.board_id) {
+      setRed(hexToRgb(color.hex).r);
+      setGreen(hexToRgb(color.hex).g);
+      setBlue(hexToRgb(color.hex).b);
+      setKolor({ colorName: color.colorName,
+                  hex: color.hex,
+                  board_id: color.board_id
+                }
+              )
+		}
+  })
 
  const numToHex = (num) => { 
     let hex = Number(num).toString(16);
@@ -32,12 +51,16 @@ const ColorForm = ({addColor}) => {
 
   const handleSubmit = () => {
     // e.preventDefault();
-    let color = { 
+    let newColor = { 
       hex: fullHex(red, green, blue), 
       colorName: fullHex(red, green, blue),
       board_id: 1
     }
-    addColor( color.board_id, color );
+    if (color.id) {
+      updateColor(color.board_id, color.id, color)
+    }else{
+      addColor( newColor.board_id, newColor );
+    }
   }
   
   return (
@@ -84,7 +107,7 @@ const ColorForm = ({addColor}) => {
       height: '110px'
     }}></div>
     <div style={{ fontWeight: 'bold' }}>Hex: {fullHex(red, green, blue)} </div>
-    <button onClick={() => handleSubmit()}>Submit</button>
+    {/* <button onClick={() => handleSubmit()}>Submit</button> */}
     </div>
   );
 }
