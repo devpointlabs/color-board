@@ -5,7 +5,7 @@ const ColorContext = React.createContext();
 export const ColorConsumer = ColorContext.Consumer;
 
 class ColorProvider extends Component {
-    state = { colors: [], color: {} }
+    state = { colors: [] }
 
     fetchColors = (boardId) => {
         axios.get(`/api/boards/${boardId}/colors`)
@@ -22,7 +22,7 @@ class ColorProvider extends Component {
         .then( res => {
             const { colors } = this.state;
             this.setState([...colors, res.data])
-            window.location.href = '/'
+            window.location.href = `/boards/${boardId}`
         })
         .catch( err => {
             console.log(err)
@@ -62,8 +62,7 @@ class ColorProvider extends Component {
                 fetchColors: this.fetchColors,
                 addColor: this.addColor,
                 updateColor: this.updateColor,
-                deleteColor: this.deleteColor,
-                color: this.state.color
+                deleteColor: this.deleteColor
                 }}>
                 { this.props.children }
             </ColorContext.Provider>

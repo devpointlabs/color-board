@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {ColorConsumer} from '../../providers/ColorProvider';
 
-const ColorForm = ({addColor, updateColor, color}) => {
+const ColorForm = ({addColor, updateColor, color, board_id}) => {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
@@ -12,18 +12,18 @@ const ColorForm = ({addColor, updateColor, color}) => {
     } 
   )
 
-  useEffect(() => {
-    if (color.board_id) {
-      setRed(hexToRgb(color.hex).r);
-      setGreen(hexToRgb(color.hex).g);
-      setBlue(hexToRgb(color.hex).b);
-      setKolor({ colorName: color.colorName,
-                  hex: color.hex,
-                  board_id: color.board_id
-                }
-              )
-		}
-  })
+  // useEffect(() => {
+  //   if (color.id) {
+  //     setRed(hexToRgb(color.hex).r);
+  //     setGreen(hexToRgb(color.hex).g);
+  //     setBlue(hexToRgb(color.hex).b);
+  //     setKolor({ colorName: color.colorName,
+  //                 hex: color.hex,
+  //                 board_id: color.board_id
+  //               }
+  //             )
+	// 	}
+  // })
 
  const numToHex = (num) => { 
     let hex = Number(num).toString(16);
@@ -54,11 +54,12 @@ const ColorForm = ({addColor, updateColor, color}) => {
     let newColor = { 
       hex: fullHex(red, green, blue), 
       colorName: fullHex(red, green, blue),
-      board_id: 1
+      board_id: board_id
     }
-    if (color.id) {
-      updateColor(color.board_id, color.id, color)
+    if (color) {
+      updateColor(color.board_id, color.id, kolor)
     }else{
+      debugger
       addColor( newColor.board_id, newColor );
     }
   }
@@ -107,7 +108,7 @@ const ColorForm = ({addColor, updateColor, color}) => {
       height: '110px'
     }}></div>
     <div style={{ fontWeight: 'bold' }}>Hex: {fullHex(red, green, blue)} </div>
-    {/* <button onClick={() => handleSubmit()}>Submit</button> */}
+    <button onClick={() => handleSubmit()}>Submit</button>
     </div>
   );
 }

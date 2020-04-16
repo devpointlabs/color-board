@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { BoardConsumer } from "../../providers/BoardProvider";
-import ColorForm from '../shared/ColorForm';
 
 class BoardForm extends Component {
-	state = { title: "", desc: "", colorForms: [] }
+	state = { title: "", desc: "" }
 
 	componentDidMount() {
 		if (this.props.board.id) {
@@ -28,15 +27,9 @@ class BoardForm extends Component {
 		this.setState({ title: '', desc: '' })
 	}
 
-	addColorForm = () => {
-		const { colorForms } = this.state
-		this.setState({ colorForms: [ ...colorForms, <ColorForm /> ]})
-	}
-
 	render() {
 		const { title, desc } = this.state
 		return(
-			<>
 			<form onSubmit={this.handleSubmit}>
 				<label>Title</label>
 				<input 
@@ -67,13 +60,6 @@ class BoardForm extends Component {
 				</button>
 				<br/>
 			</form>
-			{ this.state.colorForms.map( form => form) }
-			{ this.state.colorForms.length === 5 ? 
-			 <h1>Color max!</h1> 
-			:
-			<button onClick={() => this.addColorForm()}>Add Color</button>
-		}
-				</>
 		)
 	}
 }
