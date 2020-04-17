@@ -35,7 +35,16 @@ class Navbar extends Component {
               New Board
             </Link>
           </button>
-          <img src={require('./user.png')} style={styles.userIcon}/>
+           <span>
+            <button 
+              onClick={() => handleLogout(this.props.history)}
+            >
+              Logout
+            </button>
+          </span>
+          <Link to="/profile" >
+              <img src={ this.props.auth.user.image } style={styles.userIcon}/>
+          </Link>
             <Link onClick={() => handleLogout(this.props.history)}>
               <img src={require('./logout.png')} style={styles.logout} />
             </Link>
