@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :colors
     end
     get '/current_user_boards', to: 'boards#userBoards'
+    get '/board_colors/:id', to: 'boards#board_colors'
   end
 
 end
