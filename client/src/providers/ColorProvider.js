@@ -49,6 +49,7 @@ class ColorProvider extends Component {
         axios.delete(`/api/boards/${boardId}/colors/${colorId}`)
         .then( res => {
             this.setState({ colors: this.state.colors.filter(c => c.id !== colorId)})
+            window.location.href = `/boards/${boardId}`
         })
         .catch( err => {
             console.log(err)
