@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
 
-
-
 class ColorShow extends Component {
   state = { showForm: false }
-  // componentDidMount() {
-  //   this.props.fetchColors(this.props.match.params.id)
-  //   debugger
-  // }
 
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
 
@@ -25,7 +19,6 @@ class ColorShow extends Component {
           Edit
         </button>
       }
-    
      </>
     )
   }
@@ -38,10 +31,8 @@ class ColorShow extends Component {
           width: '100%',
           margin: '150px',
         }}>
-
         </div>
         <div>
-          
           <h1>Color Show</h1>
             <h2>{colorName}</h2>
             <div style={{
@@ -49,9 +40,7 @@ class ColorShow extends Component {
               height: '100px',
               width: '50%',
             }}>
-
             </div>
-
             {this.updateColor()}
             <button onClick={() => this.props.deleteColor(board_id, id)}>
               delete
