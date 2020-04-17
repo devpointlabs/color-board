@@ -55,9 +55,10 @@ class BoardForm extends Component {
 				/>
 				<button 
 					type='submit' 
-					class="btn-floating large blue">
+					class="btn-floating large #43A69A">
 					<i class="material-icons">add</i>
 				</button>
+				<br/>
 			</form>
 		)
 	}

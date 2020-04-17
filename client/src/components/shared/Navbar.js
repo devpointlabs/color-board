@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, NavLink } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 class Navbar extends Component {
@@ -10,52 +10,55 @@ class Navbar extends Component {
       return (
         <>
         <div>
-          <Link to='/my_boards'>
-            <button
+          <span style={styles.logoName}>ColorBoard</span>
+          <img style={styles.logo} src={require('./color-board-ico1.png')} />
+            <NavLink 
+              to='/my_boards'
+              activeStyle={{
+                borderBottom: '2px solid #D80179',
+              }}
+              style={styles.myBoards}
               name='my_boards'
               id='my_boards'
-              className='btn-small'
               active={this.props.location.pathname === '/my_boards'}>
               My Boards
-              </button>
-          </Link>
-          <button>
-            <Link to="/newBoard"> 
-            New Board
+              </NavLink>
+              <form style={styles.form}>
+                <input 
+                  style={styles.search} 
+                  type="text"
+                  placeholder="Search for Boards" />
+                  <img style={styles.searchIcon} src={require('./search.png')} />
+              </form>
+          <button style={styles.newBoard}>
+            <Link to="/newBoard" style={{color: 'white'}}> 
+              New Board
             </Link>
           </button>
-          <Link to='/profile'>
-            <button
-              name='profile'
-              id='profile'
-              className='btn-small'
-              active={this.props.location.pathname === '/profile'}>
-              Profile
-              </button>
-          </Link>
-          <span>
+           <span>
             <button 
               onClick={() => handleLogout(this.props.history)}
             >
               Logout
             </button>
           </span>
+          <Link to="/profile" >
+              <img src={ this.props.auth.user.image } style={styles.userIcon}/>
+          </Link>
+            <Link onClick={() => handleLogout(this.props.history)}>
+              <img src={require('./logout.png')} style={styles.logout} />
+            </Link>
           </div>
         </>
       )
     } else {
       return(
-        <div style={{
-          marginTop: '-33px', 
-          marginLeft: '20rem',
-          textAlign: 'center'
-        }}>
+        <div>
           <Link to='/login'>
             <button
               id='login'
               name='login'
-              className='btn-small'
-              style={{marginRight: '0.8rem'}}
+              style={{display: 'none'}}
               active={location.pathname === '/login'}>
               Login
             </button>
@@ -64,7 +67,7 @@ class Navbar extends Component {
             <button
               id='register'
               name='register'
-              className='btn-small'
+              style={{display: 'none'}}
               active={location.pathname === '/register'}>
               Register
             </button>
@@ -76,24 +79,110 @@ class Navbar extends Component {
   
   render() {
     return(
-      <div style={{
-        marginTop: '1.5rem',
-        marginLeft: '-14rem',
-        marginBottom: '1rem', 
-        textAlign: 'center'
-      }}>
-        <Link to='/explore'>
-          <button
-            name='explore'
-            id='explore'
-            className='btn-small'
-            active={this.props.location.pathname === '/explore'}>
-            explore
-            </button>
-        </Link>
+      <div>
+        <NavLink 
+          to='/explore' 
+          activeStyle={{
+            borderBottom: '2px solid #D80179',
+          }}
+          style={styles.explore}
+          name='explore'
+          id='explore'
+          active={this.props.location.pathname === '/explore'}>
+          Explore
+        </NavLink>
         { this.rightNavItems() }
       </div>
     )
+  }
+}
+
+const styles = {
+  logoName: {
+    position: 'absolute',
+    left: '7rem',
+    top: '3.2rem',
+    fontWeight: 'bold',
+    fontSize: '25px',
+    fontFamily: 'Rubik',
+  },
+  logo: {
+    height: 'auto',
+    width: '4.8rem',
+    position: 'absolute',
+    top: '3.3rem',
+    left: '4rem',
+    transform: 'translate(-50%, -50%)'
+  },
+  newBoard: {
+    position: 'absolute',
+    right: '10rem',
+    top: '2.7rem',
+    border: 'none',
+    borderRadius: '3px',
+    background: '#D80179',
+    padding: '8px 13px 8px 13px',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    fontFamily: 'Rubik',
+  },
+  myBoards: {
+    position: 'absolute',
+    right: '24rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '16px',
+    fontFamily: 'Rubik',
+    color: 'black',
+    background: 'none',
+  },
+  form: {
+    width: '11rem',
+    fontFamily: 'Rubik',
+    position: 'absolute',
+    left: '20rem',
+    top: '2.9rem',
+  },
+  search: {
+    borderRadius: '25px',
+    borderBottom: 'none',
+    border: '0.5px solid lightgrey',
+    height: '2rem',
+    fontSize: '16px',
+    fontFamily: 'Rubik',
+    padding: '0.3rem 5rem 0.3rem 3rem'
+  },
+  searchIcon: {
+    position: 'absolute',
+    left: '0.7rem',
+    top: '0.5rem',
+    width: '1.8rem'
+  },
+  userIcon: {
+    height: 'auto',
+    width: '2.8rem',
+    position: 'absolute',
+    right: '4.2rem',
+    top: '3.6rem',
+    transform: 'translate(-50%, -50%)'
+  },
+  explore: {
+    position: 'absolute',
+    right: '19rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '17px',
+    fontFamily: 'Rubik',
+    background: 'none',
+    color: 'black'
+  },
+  logout: {
+    height: 'auto',
+    width: '1.9rem',
+    position: 'absolute',
+    right: '1rem',
+    top: '3.6rem',
+    transform: 'translate(-50%, -50%)'
   }
 }
 

@@ -40,11 +40,13 @@ class Register extends Component {
       
       header: {
         textAlign: 'center',
-        fontSize: '20px'
+        fontSize: '20px',
+        fontFamily: 'Rubik',
       },
       
       form: {
         width: '24rem',
+        fontFamily: 'Rubik',
       },
       
       input: {
@@ -53,6 +55,7 @@ class Register extends Component {
         boxShadow: '2px 3px 8px 1px lightgrey',
         height: '3.5rem',
         fontSize: '23px',
+        fontFamily: 'Rubik',
         paddingLeft: '10px'
       },
       
@@ -72,6 +75,7 @@ class Register extends Component {
       
       ca: {
         fontSize: '12px',
+        fontFamily: 'Rubik',
         position: 'absolute',
         top: '108%',
         left: '53%',
@@ -134,7 +138,7 @@ class Register extends Component {
               />
               <div style={{textAlign: 'center'}}>
                 <button style={styles.btn} type='submit'>
-                  <span style={{color: 'white'}}>Submit</span>
+                  <span style={{color: 'white', fontFamily: 'Rubik',}}>Submit</span>
                 </button>
               </div>
             </form>

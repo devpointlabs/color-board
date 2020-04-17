@@ -27,16 +27,9 @@ export default class MyBoards extends React.Component {
       marginRight: '0.5rem',
       marginTop: '0.6rem'
     }
-    let header = 'Your Color Board'
   return (
     <div>
-      <div style={style}>
-        <span>{header}</span>
-      </div>
       <div style={container}>
-        <p style={newBoard}>
-          Create new board 
-        </p>
       </div>
       <p>{this.state.boards.text}</p>
       <NewBoard 

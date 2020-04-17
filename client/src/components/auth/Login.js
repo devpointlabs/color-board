@@ -36,7 +36,8 @@ class Login extends Component {
       
       header: {
         textAlign: 'center',
-        fontSize: '20px'
+        fontSize: '20px',
+        fontFamily: 'Rubik',
       },
       
       form: {
@@ -49,12 +50,14 @@ class Login extends Component {
         boxShadow: '2px 3px 8px 1px lightgrey',
         height: '3.5rem',
         fontSize: '23px',
-        paddingLeft: '10px'
+        paddingLeft: '10px',
+        fontFamily: 'Rubik',
       },
       
       label: {
         fontSize: '12px',
-        margin: '0 0 0.3rem 0'
+        margin: '0 0 0.3rem 0',
+        fontFamily: 'Rubik',
       },
       
       btn: {
@@ -68,6 +71,7 @@ class Login extends Component {
       
       fp: {
         fontSize: '12px',
+        fontFamily: 'Rubik',
         color: '#D80179',
         position: 'absolute',
         top: '108%',
@@ -77,6 +81,7 @@ class Login extends Component {
       
       ca: {
         fontSize: '12px',
+        fontFamily: 'Rubik',
         position: 'absolute',
         top: '108%',
         left: '90%',
@@ -118,7 +123,7 @@ class Login extends Component {
               />
               <div style={{textAlign: 'center'}}>
                 <button style={styles.btn} type='submit'>
-                  <span style={{color: 'white'}}>Login</span>
+                  <span style={{color: 'white', fontFamily: 'Rubik',}}>Login</span>
                 </button>
               </div>
             </form>

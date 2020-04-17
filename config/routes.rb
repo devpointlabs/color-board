@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     get '/current_user_boards', to: 'boards#userBoards'
     resources :users, only: :update
+    get '/board_colors/:id', to: 'boards#board_colors'
   end
 
 end
