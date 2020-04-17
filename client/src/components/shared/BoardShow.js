@@ -43,18 +43,26 @@ class BoardShow extends Component {
   render() {
     const { title, desc, id } = this.props.board
       return(
-        <div style={{ textAlign: "center"}}>
-          <h1>Board Show</h1>
+        <div style={{ textAlign: "center", marginTop: '100px'}}>
             <h2>{title}</h2>
             <h3>{desc}</h3>
             {this.updateBoard()}
             <button onClick={() => this.props.deleteBoard(id)}>
               delete
             </button>
-            { this.props.colors.map( c => 
-              <div style={{ backgroundColor: `${c.hex}`, padding: '20px'}}>
-              <h3>{c.hex}</h3>
+            <hr />
+            { this.props.colors.map( c =>
+            <> 
+              <div style={{ 
+                backgroundColor: `${c.hex}`,
+                paddingTop: '60px', 
+                height: '100px', 
+                width: '150px',
+                margin: 'auto',
+                alignText: 'left'}}>
+              <h5>{c.hex}</h5>
               </div>
+              </>
               )}
             { this.state.colorForms.map( form => form) }
             { this.props.colors.length === 5 ? 
