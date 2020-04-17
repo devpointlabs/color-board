@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Profile from './components/profile/Profile';
 import MyBoards from './components/shared/MyBoards';
 import Explore from './components/shared/Explore';
 import BoardShow from './components/shared/BoardShow';
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path='/register' component={Register} />
         <Route exact path='/explore' component={Explore}/>
         <Route exact path='/boards/:id' component={BoardShow}/>
+        <ProtectedRoute exact path='/profile' component={Profile} />
         <ProtectedRoute exact path='/my_boards' component={MyBoards}/>
         <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />

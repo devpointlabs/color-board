@@ -24,6 +24,15 @@ class Navbar extends Component {
             New Board
             </Link>
           </button>
+          <Link to='/profile'>
+            <button
+              name='profile'
+              id='profile'
+              className='btn-small'
+              active={this.props.location.pathname === '/profile'}>
+              Profile
+              </button>
+          </Link>
           <span>
             <button 
               onClick={() => handleLogout(this.props.history)}

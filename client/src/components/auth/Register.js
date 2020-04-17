@@ -4,13 +4,13 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import icon from './color-board-ico.png'
 
 class Register extends Component {
-  state = { email: '', password: '', passwordConfirmation: '', };
+  state = { email: '', password: '', passwordConfirmation: '', name: '' };
   handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, password, passwordConfirmation, name } = this.state;
     const { auth: { handleRegister, }, history, } = this.props;
     if (password === passwordConfirmation)
-      handleRegister({ email, password, passwordConfirmation, }, history);
+      handleRegister({ email, password, passwordConfirmation, name }, history);
     else
       alert('Passwords Do Not Match!')
   }
@@ -19,7 +19,7 @@ class Register extends Component {
     this.setState({ [name]: value, });
   }
   render() {
-    const { email, password, passwordConfirmation, } = this.state;
+    const { email, password, passwordConfirmation, name } = this.state;
     
     const styles = {
       container: {
@@ -100,6 +100,16 @@ class Register extends Component {
                 autoFocus
                 name='email'
                 value={email}
+                onChange={this.handleChange}
+              />
+              <p style={styles.label}>Name</p>
+              <input
+                style={styles.input}
+                label="Name"
+                required
+                autoFocus
+                name='name'
+                value={name}
                 onChange={this.handleChange}
               />
               <p style={styles.label}>Password</p>
