@@ -3,6 +3,7 @@ import { Button } from 'react-materialize';
 import { BoardConsumer } from '../../providers/BoardProvider';
 import BoardForm from '../board/BoardForm';
 import ColorForm from './ColorForm'
+import { Link } from 'react-router-dom';
 
 class BoardShow extends Component {
   state = { showForm: false, colorForms: [] }
@@ -76,10 +77,15 @@ class BoardShow extends Component {
                 height: '100px', 
                 width: '50%',
                 margin: 'auto'}}>
-              <h5 style={styles.h5}>{c.hex}</h5>
+                <Link 
+                  style={styles.h5} 
+                  to={{ pathname:`/boards/${this.props.match.params.id}/colors/${c.id}`, 
+                  state: {color: {...c}} }}>
+                  {c.hex}
+                </Link>
               </div>
               </>
-              )}
+            )}
             { this.state.colorForms.map( form => form) }
             { this.props.colors.length === 5 ? 
 			        null 
@@ -95,8 +101,7 @@ class BoardShow extends Component {
 const styles = {
   h5: {
     color: 'white',
-    paddingTop: '65px',
-    textAlign: 'center'
+    
   },
 
   centerButton: {

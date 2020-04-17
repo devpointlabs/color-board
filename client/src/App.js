@@ -25,6 +25,7 @@ const App = () => (
         <Route exact path='/explore' component={Explore}/>
         <Route exact path='/boards/:id' component={BoardShow}/>
         <ProtectedRoute exact path='/profile' component={Profile} />
+        <Route exact path='/boards/:board_id/colors/:id' component={ColorShow}/> 
         <Route exact path='/colorForm' component={ConnectedColorForm}/>
         <Route exact path='/boards/:id/color' component={ColorShow}/>
         <ProtectedRoute exact path='/my_boards' component={MyBoards}/>

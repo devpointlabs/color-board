@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { ColorConsumer } from '../../providers/ColorProvider';
+import ColorForm from '../shared/ColorForm';
 
 
 
 class ColorShow extends Component {
-  state = { }
-  componentDidMount() {
-	  this.props.getColor(this.props.match.params.id)
-  }
+  state = { showForm: false }
+  // componentDidMount() {
+  //   this.props.fetchColors(this.props.match.params.id)
+  //   debugger
+  // }
 
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
 
@@ -23,23 +25,39 @@ class ColorShow extends Component {
           Edit
         </button>
       }
-      <button>
-          Delete
-      </button>
+    
      </>
     )
   }
   
   render() {
-    const { name, hex } = this.props.color 
+    const { board_id, colorName, hex, id } = this.props.location.state.color
       return(
-        <div>
-          <h1>Color Show</h1>
-            <h2>{name}</h2>
-            <h3>{hex}</h3>
-            {this.updateColor()}
-            {this.deleteColor()}
+        <>
+        <div style={{
+          width: '100%',
+          margin: '150px',
+        }}>
+
         </div>
+        <div>
+          
+          <h1>Color Show</h1>
+            <h2>{colorName}</h2>
+            <div style={{
+              backgroundColor: `${colorName}`,
+              height: '100px',
+              width: '50%',
+            }}>
+
+            </div>
+
+            {this.updateColor()}
+            <button onClick={() => this.props.deleteColor(board_id, id)}>
+              delete
+            </button>
+        </div>
+        </>
       )
   }
 }
