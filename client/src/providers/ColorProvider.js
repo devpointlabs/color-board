@@ -38,7 +38,7 @@ class ColorProvider extends Component {
                 return c;
             });
             this.setState({ colors });
-            window.location.href = '/'
+            window.location.href = `/boards/${boardId}`
         })
         .catch( err => {
             console.log(err)

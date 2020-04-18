@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
+import { Button, Icon } from 'react-materialize';
 
 
 
 class ColorShow extends Component {
   state = { showForm: false }
-  // componentDidMount() {
-  //   this.props.fetchColors(this.props.match.params.id)
-  //   debugger
-  // }
-
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
 
   updateColor = () => {
@@ -19,11 +15,18 @@ class ColorShow extends Component {
      <>
       {
         showForm ? 
-        <ColorForm {...this.props} toggleForm={this.toggleForm} />
+        <div style={{
+          width: '300px',
+          textAlign: 'center',
+          padding: '30px',
+          
+        }}>
+        <ColorForm color={this.props.location.state.color} toggleForm={this.toggleForm} />
+          </div>
         :
-        <button onClick={() => this.toggleForm()}>
+        <Button onClick={() => this.toggleForm()}>
           Edit
-        </button>
+        </Button>
       }
     
      </>
@@ -31,36 +34,41 @@ class ColorShow extends Component {
   }
   
   render() {
-    const { board_id, colorName, hex, id } = this.props.location.state.color
+    const { board_id, colorName, id } = this.props.location.state.color
       return(
         <>
         <div style={{
           width: '100%',
           margin: '150px',
         }}>
-
+          <div style={{
+          margin: 'auto',
+          }}>
         </div>
+
         <div>
-          
-          <h1>Color Show</h1>
+          <h1>Color Details</h1>
             <h2>{colorName}</h2>
             <div style={{
               backgroundColor: `${colorName}`,
               height: '100px',
               width: '50%',
             }}>
-
             </div>
 
             {this.updateColor()}
-            <button onClick={() => this.props.deleteColor(board_id, id)}>
-              delete
-            </button>
+            <Button onClick={() => this.props.deleteColor(board_id, id)}>
+              Delete
+            </Button>
+            <p><Icon small>content_copy</Icon> copy to your clipboard</p>
+         </div>
         </div>
         </>
+      
       )
   }
 }
+
   
 const ConnectedColorShow = (props) => (
   <ColorConsumer> 

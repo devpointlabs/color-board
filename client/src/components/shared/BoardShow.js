@@ -89,9 +89,16 @@ class BoardShow extends Component {
             { this.state.colorForms.map( form => form) }
             { this.props.colors.length === 5 ? 
 			        null 
-			        :
-              <Button style={styles.centerButton}
+              :
+              <div style={{ 
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: '25px',
+                textAlign: 'center',
+              }}>
+              <Button
               onClick={() => this.addColorForm()}>Add Color</Button>
+              </div>
 		        }
         </>
       )
@@ -105,7 +112,8 @@ const styles = {
   },
 
   centerButton: {
-    margin: 'auto',
+    marginLeft: 'auto',
+		marginRight: 'auto',
     textAlign: 'center'
   }
 }
