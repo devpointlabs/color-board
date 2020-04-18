@@ -3,8 +3,6 @@ import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
 import { Button, Icon } from 'react-materialize';
 
-
-
 class ColorShow extends Component {
   state = { showForm: false }
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
@@ -28,7 +26,6 @@ class ColorShow extends Component {
           Edit
         </Button>
       }
-    
      </>
     )
   }
@@ -45,9 +42,9 @@ class ColorShow extends Component {
           margin: 'auto',
           }}>
         </div>
-
         <div>
           <h1>Color Details</h1>
+
             <h2>{colorName}</h2>
             <div style={{
               backgroundColor: `${colorName}`,
@@ -55,7 +52,6 @@ class ColorShow extends Component {
               width: '50%',
             }}>
             </div>
-
             {this.updateColor()}
             <Button onClick={() => this.props.deleteColor(board_id, id)}>
               Delete
