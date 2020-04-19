@@ -50,24 +50,24 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
   };
 
   const handleSubmit = () => {
-    // e.preventDefault();
     let newColor = { 
       hex: fullHex(red, green, blue), 
       colorName: fullHex(red, green, blue),
       board_id: board_id
     }
     if (color) {
-      updateColor(color.board_id, color.id, kolor)
-    }else{
-      debugger
+      updateColor(color.board_id, color.id, newColor)
+    } else {
       addColor( newColor.board_id, newColor );
     }
   }
   
   return (
     <div style={{
-      width: '300px',
-      margin: 'auto',
+      width: '30%',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      marginTop: '25px',
       textAlign: 'center',
       padding: '10px',
       outline: '2px solid #43A69A'
@@ -104,6 +104,8 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
     </div>
     <div style={{
       backgroundColor: `rgb(${red}, ${green}, ${blue})`,
+      marginLeft: 'auto',
+      marginRight: 'auto',
       width: '280px',
       height: '110px'
     }}></div>
@@ -112,7 +114,6 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
     </div>
   );
 }
-
 
 const ConnectedColorForm = (props) => (
   <>

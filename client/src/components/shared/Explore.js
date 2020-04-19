@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 const Styles = styled.div`
 	.center {
-		margin: 0 auto;
+		margin-top: 100px;
 		float: left;
 	}
 `
@@ -17,7 +17,12 @@ const Explore = () => (
     {
 			value =>
 			<Styles>
-				<div>
+				<div style={{ 
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: '100px',
+                textAlign: 'center',
+              }}>
 					{ 
 						value.boards.map( b =>
 							<Link to={`/boards/${b.id}`}> 
@@ -25,7 +30,7 @@ const Explore = () => (
 							</Link>
 							)
 					}
-					<Button className="center">
+					<Button>
 						Load More
 					</Button>
 				</div>
