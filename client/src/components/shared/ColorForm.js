@@ -50,17 +50,14 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
   };
 
   const handleSubmit = () => {
-    // e.preventDefault();
     let newColor = { 
       hex: fullHex(red, green, blue), 
       colorName: fullHex(red, green, blue),
       board_id: board_id
     }
     if (color) {
-      // debugger
       updateColor(color.board_id, color.id, newColor)
-    }else{
-    
+    } else {
       addColor( newColor.board_id, newColor );
     }
   }
@@ -117,7 +114,6 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
     </div>
   );
 }
-
 
 const ConnectedColorForm = (props) => (
   <>
