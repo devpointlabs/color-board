@@ -6,6 +6,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import About from './components/about /About'
 import Profile from './components/profile/Profile';
 import MyBoards from './components/shared/MyBoards';
 import Explore from './components/shared/Explore';
@@ -16,12 +17,13 @@ import ColorShow from './components/color/ColorShow';
 
 const App = () => (
   <>
-    <Navbar />
+    <Navbar/>
     <FetchUser>
       <Switch>
         <Route exact path='/' component={Explore} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/about' component={About} />
         <Route exact path='/explore' component={Explore}/>
         <Route exact path='/boards/:id' component={BoardShow}/>
         <ProtectedRoute exact path='/profile' component={Profile} />
