@@ -3,38 +3,64 @@ import { Link } from 'react-router-dom';
 import { BoardConsumer } from '../../providers/BoardProvider'
 import { Button } from 'react-materialize';
 import Board from './Board'
-import styled from 'styled-components'
-
-const Styles = styled.div`
-	.center {
-		margin-top: 100px;
-		float: left;
-	}
-`
+import Liked from './Liked'
 
 const Explore = () => (
 	<BoardConsumer> 
     {
 			value =>
-			<Styles>
-				<div style={{ 
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                marginTop: '100px',
-                textAlign: 'center',
-              }}>
+				<div>
+				<span style={{
+					position: 'absolute',
+			    left: '3rem',
+			    top: '9rem',
+			    fontSize: '20px',
+			    fontFamily: 'Rubik',
+				}}>Explore</span>
+				<div style={{
+					display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					justifyContent: 'center',
+					marginTop: '11rem',
+					marginLeft: '20rem'
+				}}>
 					{ 
 						value.boards.map( b =>
-							<Link to={`/boards/${b.id}`}> 
+							<div 
+								style={{
+									marginLeft: '10rem',
+							 		display: 'flex', 
+									flexDirection: 'column'
+								}}>
+								<Link to={`/boards/${b.id}`}> 
 								<Board {...b} />
-							</Link>
+								</Link>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
+							</div>
 							)
 					}
-					<Button>
-						Load More
-					</Button>
 				</div>
-			</Styles>
+				<div style={{textAlign: 'center'}}>
+				<button style={{
+					alignItems: 'center',
+			    border: 'none',
+			    borderRadius: '40px',
+			    background: '#EF94C6',
+			    padding: '14px 30px 14px 30px',
+			    fontSize: '16px',
+			    fontFamily: 'Rubik',
+					color: 'white'
+				}}>
+					Load More
+				</button>
+				</div>
+			</div>
 		}
 	</BoardConsumer>
 )

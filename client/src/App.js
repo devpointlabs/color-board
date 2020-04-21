@@ -8,7 +8,7 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import About from './components/about /About'
 import Profile from './components/profile/Profile';
-import MyBoards from './components/shared/MyBoards';
+import ConnectedMyBoards from './components/shared/MyBoards';
 import Explore from './components/shared/Explore';
 import BoardShow from './components/shared/BoardShow';
 import BoardForm from './components/board/BoardForm';
@@ -30,7 +30,7 @@ const App = () => (
         <Route exact path='/boards/:board_id/colors/:id' component={ColorShow}/> 
         <Route exact path='/colorForm' component={ConnectedColorForm}/>
         <Route exact path='/boards/:id/color' component={ColorShow}/>
-        <ProtectedRoute exact path='/my_boards' component={MyBoards}/>
+        <ProtectedRoute exact path='/my_boards' component={ConnectedMyBoards}/>
         <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />
       </Switch>

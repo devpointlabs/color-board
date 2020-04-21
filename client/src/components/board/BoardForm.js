@@ -33,12 +33,18 @@ class BoardForm extends Component {
 		const { title, desc } = this.state
 		return(
 			<div style={{ 
-				marginLeft: 'auto',
-				marginRight: 'auto',
-				marginTop: '150px',
-				textAlign: 'center',
+				
 			}}>
-			<h3>Customize your Board</h3>
+			<h3 style={{
+				borderRadius: '10px',
+        borderBottom: '1px solid lightgrey',
+        boxShadow: '2px 3px 8px 1px lightgrey',
+				width: '90%',
+				height: '10rem',
+        fontSize: '23px',
+        fontFamily: 'Rubik',
+				textAlign: 'left'
+			}}>Create a new board</h3>
 			<div style={{
 				width: '60%',
 				marginLeft: 'auto',

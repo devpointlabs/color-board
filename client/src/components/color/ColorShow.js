@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
 import { Button, Icon } from 'react-materialize';
+import ConnectedCopyPaste from '../shared/Clipboard';
 
 class ColorShow extends Component {
   state = { showForm: false }
@@ -14,10 +15,8 @@ class ColorShow extends Component {
       {
         showForm ? 
         <div style={{
-          width: '300px',
-          textAlign: 'center',
-          padding: '30px',
-          
+          width: '80%',
+          textAlign: 'left'
         }}>
         <ColorForm color={this.props.location.state.color} toggleForm={this.toggleForm} />
           </div>
@@ -29,7 +28,7 @@ class ColorShow extends Component {
      </>
     )
   }
-  
+
   render() {
     const { board_id, colorName, id } = this.props.location.state.color
       return(
@@ -56,7 +55,7 @@ class ColorShow extends Component {
             <Button onClick={() => this.props.deleteColor(board_id, id)}>
               Delete
             </Button>
-            <p><Icon small>content_copy</Icon> copy to your clipboard</p>
+           <ConnectedCopyPaste colorName={colorName} />
          </div>
         </div>
         </>
