@@ -18,10 +18,12 @@ const MyBoards = ({ user }) => (
 			value =>
 			<Styles>
 				<div style={{ 
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                marginTop: '100px',
-                textAlign: 'center',
+          display: 'flex',
+					flexDirection: 'row',
+					flexWrap: 'wrap',
+					justifyContent: 'center',
+					marginTop: '11rem',
+					marginLeft: '10rem'
               }}>
           { 
             

@@ -16,17 +16,17 @@ const Styles = styled.div`
 const Board = ({ title, desc }) => (
   <Styles>
     <div style={{
-					position: 'absolute',
+					padding: '5rem',
+          wordWrap: 'break-word',
 			    left: '4rem',
 			    top: '13rem',
 					width: '20rem',
 				  height: '18rem',
-					borderTopLeftRadius: '10px',
-					borderBottomLeftRadius: '10px',
-					boxShadow: '-9px 11px 20px 1px lightgrey',
+          border: '1px solid lightgrey'
+					//boxShadow: '-9px 11px 20px 1px lightgrey',
 				}}>
 					<span style={{
-						position: 'absolute',
+						
 				    left: '1.5rem',
 				    top: '2rem',
 						fontWeight: 'bold',
@@ -36,7 +36,7 @@ const Board = ({ title, desc }) => (
 						{title}
 					</span>
 					<span style={{
-						position: 'absolute',
+						
 				    left: '1.5rem',
 				    top: '5.5rem',
 				    fontSize: '18px',
@@ -47,12 +47,12 @@ const Board = ({ title, desc }) => (
 						{desc} 
 					</span>
 					<img src={require('./user.png')} style={{
-						height: 'auto',
-				    width: '2.8rem',
-				    position: 'absolute',
+					  height: '1.8rem',
+				    width: '1.8rem',
+				    
 				    right: '-0.3rem',
 				    top: '15.5rem',
-				    transform: 'translate(-50%, -50%)'
+				    
 					}} />
 					
 					<Liked />
