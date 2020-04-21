@@ -29,7 +29,7 @@ const Explore = () => (
 						value.boards.map( b =>
 							<div 
 								style={{
-									marginLeft: '-3.9rem',
+									marginLeft: '10rem',
 							 		display: 'flex', 
 									flexDirection: 'column'
 								}}>
