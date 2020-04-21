@@ -18,49 +18,6 @@ const Explore = () => (
 			    fontFamily: 'Rubik',
 				}}>Explore</span>
 				<div style={{
-					position: 'absolute',
-			    left: '4rem',
-			    top: '13rem',
-					width: '20rem',
-				  height: '18rem',
-					borderTopLeftRadius: '10px',
-					borderBottomLeftRadius: '10px',
-					boxShadow: '-9px 11px 20px 1px lightgrey',
-				}}>
-					<span style={{
-						position: 'absolute',
-				    left: '1.5rem',
-				    top: '2rem',
-						fontWeight: 'bold',
-				    fontSize: '18px',
-				    fontFamily: 'Rubik',
-					}}>
-						Board Name
-					</span>
-					<span style={{
-						position: 'absolute',
-				    left: '1.5rem',
-				    top: '5.5rem',
-				    fontSize: '18px',
-				    fontFamily: 'Rubik',
-						wordWrap: 'break-word',
-						paddingRight: '3rem'
-					}}>
-						Totally rad descriptive placeholder text 
-					</span>
-					<img src={require('./user.png')} style={{
-						height: 'auto',
-				    width: '2.8rem',
-				    position: 'absolute',
-				    right: '-0.3rem',
-				    top: '15.5rem',
-				    transform: 'translate(-50%, -50%)'
-					}} />
-					
-					<Liked />
-					
-				</div>
-				<div style={{
 					display: 'flex',
 					flexDirection: 'row',
 					flexWrap: 'wrap',
@@ -79,6 +36,12 @@ const Explore = () => (
 								<Link to={`/boards/${b.id}`}> 
 								<Board {...b} />
 								</Link>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
+								< br/>
 							</div>
 							)
 					}

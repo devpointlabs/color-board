@@ -1,33 +1,56 @@
 import React from 'react';
-import NewBoard from './NewBoard'
+import { Link } from 'react-router-dom';
+import { BoardConsumer } from '../../providers/BoardProvider'
+import { AuthConsumer } from '../../providers/AuthProvider'
+import Board from './Board';
+import styled from 'styled-components';
 
-export default class MyBoards extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      boards:[],
-      boardItem:{
-        text:'', key:''
-      }
+const Styles = styled.div`
+	.center {
+		margin-top: 100px;
+		float: left;
+	}
+`
+
+const MyBoards = ({ user }) => (
+	<BoardConsumer> 
+    {
+			value =>
+			<Styles>
+				<div style={{ 
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: '100px',
+                textAlign: 'center',
+              }}>
+          { 
+            
+            value.boards.map( b =>
+              { 
+                if (b.user_id === user.id) {
+                  return(
+                    <Link to={`/boards/${b.id}`}> 
+                      <Board {...b} />
+                    </Link>
+                  )
+                }
+              }
+              )
+              
+					}
+				</div>
+			</Styles>
+		}
+	</BoardConsumer>
+)
+
+const ConnectedMyBoards = (props) => (
+  <AuthConsumer>
+    {
+      value =>
+      <MyBoards {...value} {...props}/>
     }
-  }
- render() {
-  return (
-    <div>
-      <span style={{
-        position: 'absolute',
-        left: '3rem',
-        top: '9rem',
-        fontSize: '20px',
-        fontFamily: 'Rubik'
-      }}>My Boards</span>
-      <p>{this.state.boards.text}</p>
-      <NewBoard 
-        items={this.state.boards} 
-        deleteBoard={this.deleteBoard} 
-        updateBoard={this.updateBoard}
-      />
-    </div>
-  ); 
- }
-}
+  </AuthConsumer>
+)
+
+export default ConnectedMyBoards;

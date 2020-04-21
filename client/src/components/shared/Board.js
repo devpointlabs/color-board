@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import Liked from './Liked';
 
 const Styles = styled.div`
 
@@ -14,22 +15,49 @@ const Styles = styled.div`
 
 const Board = ({ title, desc }) => (
   <Styles>
-    <div className="card">
-        <p style={{
-          position: 'absolute',
-          bottom: '-2.4rem',
-          left: '8.5rem',
-          transform: 'translate(-50%, -50%)',
-			    marginTop: '8rem',
-			    fontSize: '20px',
-			    fontFamily: 'Rubik',
-          color: 'black',
-          background: '#DADBDC',
-          opacity: '0.5',
-          padding: '4px 14px 4px 14px',
-          borderRadius: '25px'
-        }}>{desc}</p>
-    </div>
+    <div style={{
+					position: 'absolute',
+			    left: '4rem',
+			    top: '13rem',
+					width: '20rem',
+				  height: '18rem',
+					borderTopLeftRadius: '10px',
+					borderBottomLeftRadius: '10px',
+					boxShadow: '-9px 11px 20px 1px lightgrey',
+				}}>
+					<span style={{
+						position: 'absolute',
+				    left: '1.5rem',
+				    top: '2rem',
+						fontWeight: 'bold',
+				    fontSize: '18px',
+				    fontFamily: 'Rubik',
+					}}>
+						{title}
+					</span>
+					<span style={{
+						position: 'absolute',
+				    left: '1.5rem',
+				    top: '5.5rem',
+				    fontSize: '18px',
+				    fontFamily: 'Rubik',
+						wordWrap: 'break-word',
+						paddingRight: '3rem'
+					}}>
+						{desc} 
+					</span>
+					<img src={require('./user.png')} style={{
+						height: 'auto',
+				    width: '2.8rem',
+				    position: 'absolute',
+				    right: '-0.3rem',
+				    top: '15.5rem',
+				    transform: 'translate(-50%, -50%)'
+					}} />
+					
+					<Liked />
+					
+				</div>
   </Styles>
 )
 
