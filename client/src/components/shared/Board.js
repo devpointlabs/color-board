@@ -1,40 +1,63 @@
 import React from 'react';
 import styled from 'styled-components'
+import Liked from './Liked';
 
 const Styles = styled.div`
 
-.container {
-  display:flex;
-  justify-content: center;
-  align-items: flex-stretch;
-  width: 80%;
-  
-}
-
 .card {
-  width: 300px;
-  border: 5px solid grey;
-  padding: 15px;
-  margin: 20px;
-
-
-}
-.title {
-  justify-content: flex-start;
-}
-.desc {
-  justify-content: flex-end;
-}
+  width: 17rem;
+  height: 18rem;
+  padding: 10px;
+  margin: 2rem;
+  word-wrap: break-word;
+},
 `
 
 const Board = ({ title, desc }) => (
   <Styles>
-    <div className="container">
-      <div className="card">
-          <h1 className="title">{title}</h1>
-          <p>{desc}</p>
-      </div>
-    </div>
+    <div style={{
+					position: 'absolute',
+			    left: '4rem',
+			    top: '13rem',
+					width: '20rem',
+				  height: '18rem',
+					borderTopLeftRadius: '10px',
+					borderBottomLeftRadius: '10px',
+					boxShadow: '-9px 11px 20px 1px lightgrey',
+				}}>
+					<span style={{
+						position: 'absolute',
+				    left: '1.5rem',
+				    top: '2rem',
+						fontWeight: 'bold',
+				    fontSize: '18px',
+				    fontFamily: 'Rubik',
+					}}>
+						{title}
+					</span>
+					<span style={{
+						position: 'absolute',
+				    left: '1.5rem',
+				    top: '5.5rem',
+				    fontSize: '18px',
+				    fontFamily: 'Rubik',
+						wordWrap: 'break-word',
+						paddingRight: '3rem'
+					}}>
+						{desc} 
+					</span>
+					<img src={require('./user.png')} style={{
+						height: 'auto',
+				    width: '2.8rem',
+				    position: 'absolute',
+				    right: '-0.3rem',
+				    top: '15.5rem',
+				    transform: 'translate(-50%, -50%)'
+					}} />
+					
+					<Liked />
+					
+				</div>
   </Styles>
 )
 
