@@ -14,7 +14,7 @@
     "react-dom": "^16.13.1",
     "react-dropzone": "^10.2.2",
     "react-flip-move": "^3.0.4",
-    "react-materialize": "^3.8.3",
+    "react-materialize": "^3.8.5",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "semantic-ui-css": "^2.4.1",
