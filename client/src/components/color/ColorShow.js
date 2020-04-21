@@ -55,8 +55,8 @@ class ColorShow extends Component {
             <Button onClick={() => this.props.deleteColor(board_id, id)}>
               Delete
             </Button>
+           <ConnectedCopyPaste colorName={colorName} />
          </div>
-         <ConnectedCopyPaste />
         </div>
         </>
       

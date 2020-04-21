@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ColorConsumer } from '../../providers/ColorProvider';
 import { Button, Icon } from 'react-materialize';
@@ -9,19 +8,19 @@ class CopyPaste extends React.Component {
     value: '',
     copied: false,
   };
+
+  componentDidMount() {
+    this.setState({ value: this.props.colorName})
+  }
  
   render() {
     return (
       <div>
-        <input value={this.state.value}
-          onChange={({target: {value}}) => this.setState({value, copied: false})} />
- 
-        <CopyToClipboard text={this.state.value}
+        <CopyToClipboard text={this.state.value} 
           onCopy={() => this.setState({copied: true})}>
-          <Button><Icon small>content_copy</Icon> copy to your clipboard</Button>
+          <Button><Icon small>content_copy</Icon> copy to clipboard</Button>
         </CopyToClipboard>
- 
-        {this.state.copied ? <span style={{color: 'red'}}>Copied.</span> : null}
+        {this.state.copied ? <span style={{color: '#D80179'}}>Copied!</span> : null}
       </div>
     );
   }
