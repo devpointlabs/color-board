@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BoardConsumer } from "../../providers/BoardProvider";
 
+
+
 class BoardForm extends Component {
 	state = { title: "", desc: "" }
 
@@ -30,35 +32,54 @@ class BoardForm extends Component {
 	render() {
 		const { title, desc } = this.state
 		return(
-			<form onSubmit={this.handleSubmit}>
+			<div style={{ 
+				marginLeft: 'auto',
+				marginRight: 'auto',
+				marginTop: '150px',
+				textAlign: 'center',
+			}}>
+			<h3>Customize your Board</h3>
+			<div style={{
+				width: '60%',
+				marginLeft: 'auto',
+				marginRight: 'auto',
+				textAlign: 'center',
+				padding: '20px',
+				outline: '2px solid #D80179'
+			  }}>
+			<form
+			onSubmit={this.handleSubmit}>
 				<label>Title</label>
 				<input 
 					style={{
-							width: '4rem', 
-							marginTop: '-0.1rem', 
-							marginRight: '1rem'}} 
-					required
-					name='title'
-					value={title}
-					onChange={this.handleChange}
-				/>
+						width: '10rem', 
+						marginTop: '-0.1rem', 
+						marginRight: '1rem'}} 
+						required
+						name='title'
+						value={title}
+						onChange={this.handleChange}
+						/>
 				<label>Description</label>
 				<input 
 					style={{
-							width: '4rem', 
-							marginTop: '-0.1rem', 
-							marginRight: '1rem'}} 
-					required
-					name='desc'
-					value={desc}
-					onChange={this.handleChange}
-				/>
+						width: '15rem', 
+						marginTop: '-0.1rem', 
+						marginRight: '1rem'}} 
+						required
+						name='desc'
+						value={desc}
+						onChange={this.handleChange}
+						/>
 				<button 
 					type='submit' 
-					class="btn-floating large blue">
-					<i class="material-icons">add</i>
+					class="btn-floating large #D80179">
+					<i class="material-icons #D80179" >add</i>
 				</button>
+				<br/>
 			</form>
+			</div>
+			</div>
 		)
 	}
 }

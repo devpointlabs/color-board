@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-# ruby '2.5.1'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,11 +24,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise_token_auth'
 gem 'discard', '~> 1.2'
+gem 'cloudinary'
 
 
 group :development, :test do
   gem 'pry'
   gem 'faker'
+  gem 'dotenv-rails'
 
 end
 

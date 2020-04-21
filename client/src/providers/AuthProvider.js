@@ -40,6 +40,19 @@ class AuthProvider extends Component {
       })
   }
 
+  updateUser = (id, user) => {
+    let data = new FormData()
+    data.append('file', user.file)
+    axios.put(`/api/users/${id}?name=${user.name}&email=${user.email}`, data)
+      .then( res =>{
+        this.setState({ user: res.data})
+        window.location.href = '/profile'
+      } )
+      .catch( res => {
+        console.log(res);
+      })
+  }
+
   render() {
     return(
       <AuthContext.Provider value={{
@@ -48,7 +61,8 @@ class AuthProvider extends Component {
         handleLogin: this.handleLogin,
         handleLogout: this.handleLogout,
         authenticated: this.state.user !== null,
-        setUser: (user) => this.setState({ user })
+        setUser: (user) => this.setState({ user }),
+        updateUser: this.updateUser,
       }}>
         { this.props.children }
       </AuthContext.Provider>

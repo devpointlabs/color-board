@@ -36,6 +36,10 @@ class Api::BoardsController < ApplicationController
     render json: { message: 'Board Deleted'}
   end
 
+  def board_colors
+    render json: Board.find(params[:id]).colors
+  end
+
   private
 
     def board_params

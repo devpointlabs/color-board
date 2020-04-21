@@ -15,7 +15,7 @@ export default function NewBoard(props){
           borderRadius: '8px',
           background: item.text, // needs conditional logic to handle unknown colors. Base colors(red, blue, green, etc) work fine
           padding: '1rem',
-          marginLeft: '1rem',
+          marginLeft: '100px',
           marginRight: '1rem'
         }}>
         <input 
@@ -27,7 +27,7 @@ export default function NewBoard(props){
             style={{
               color: 'white',
               marginTop: '6.2rem',
-              marginLeft: '-0.5rem',
+              marginLeft: '-0.5r100pxm',
               border: '1px solid lightgrey',
               borderRadius: '10px',
               width: '6.5rem',
@@ -50,6 +50,7 @@ export default function NewBoard(props){
   })
     
     return <div>
+      
         <FlipMove duration={300}>
           {board}
         </FlipMove>
