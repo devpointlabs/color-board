@@ -14,10 +14,8 @@ class ColorShow extends Component {
       {
         showForm ? 
         <div style={{
-          width: '300px',
-          textAlign: 'center',
-          padding: '30px',
-          
+          width: '80%',
+          textAlign: 'left'
         }}>
         <ColorForm color={this.props.location.state.color} toggleForm={this.toggleForm} />
           </div>
