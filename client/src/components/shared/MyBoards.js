@@ -11,26 +11,16 @@ export default class MyBoards extends React.Component {
       }
     }
   }
- render(){
-   let style = {
-      textAlign: 'center',
-      fontSize: '2rem',
-      lineHeight: '2.3rem'
-    }
-    let container = {
-      display: 'flex',
-      flexDirection: 'row',
-      marginTop: '2rem',
-      justifyContent: 'center'
-    }
-    let newBoard = {
-      marginRight: '0.5rem',
-      marginTop: '0.6rem'
-    }
+ render() {
   return (
     <div>
-      <div style={container}>
-      </div>
+      <span style={{
+        position: 'absolute',
+        left: '3rem',
+        top: '9rem',
+        fontSize: '20px',
+        fontFamily: 'Rubik'
+      }}>My Boards</span>
       <p>{this.state.boards.text}</p>
       <NewBoard 
         items={this.state.boards} 
@@ -38,6 +28,6 @@ export default class MyBoards extends React.Component {
         updateBoard={this.updateBoard}
       />
     </div>
-  );
+  ); 
  }
 }
