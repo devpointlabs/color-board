@@ -23,6 +23,17 @@ class Navbar extends Component {
               active={this.props.location.pathname === '/my_boards'}>
               My Boards
               </NavLink>
+              <NavLink 
+              to='/about'
+              activeStyle={{
+                borderBottom: '2px solid #D80179',
+              }}
+              style={styles.About}
+              name='about'
+              id='about'
+              active={this.props.location.pathname === '/about'}>
+              About
+              </NavLink>
               <form style={styles.form}>
                 <input 
                   style={styles.search} 
@@ -119,12 +130,22 @@ const styles = {
     fontSize: '16px',
     fontFamily: 'Rubik',
   },
+  About: {
+    position: 'absolute',
+    right: '30.5rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '17px',
+    fontFamily: 'Rubik',
+    color: 'black',
+    background: 'none',
+  },
   myBoards: {
     position: 'absolute',
     right: '24rem',
     top: '3rem',
     border: 'none',
-    fontSize: '16px',
+    fontSize: '17px',
     fontFamily: 'Rubik',
     color: 'black',
     background: 'none',
