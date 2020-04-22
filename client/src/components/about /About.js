@@ -1,5 +1,5 @@
 import React from "react";
-import { TopHeader, AboutSite, AboutDevs, Photo, SamsProfile, NicksProfile, TonisProfile, MaxProfile } from "./AboutStyle";
+import { TopHeader, AboutSite, AboutDevs, Photo, SamsProfile, NicksProfile, TonisProfile, MaxProfile, Card, CardText, CardImage, } from "./AboutStyle";
 import Person from "./Person.png";
 import Sam from "./Sam.png";
 import Nick from "./Nick.png";
@@ -39,8 +39,11 @@ const About =() => (
  
   <AboutDevs>
   <h3>About the Developers</h3>
-    <NicksProfile src={ Nick } / >
-    <h5 style={{color: '#66CCCC'}} >Nick Semerand (Favorite Color: Teal)</h5> 
+  
+    <Card>
+      <CardImage src={ Nick } />
+      <CardText>
+      <h5 style={{color: '#66CCCC'}} >Nick Semerand (Favorite Color: Teal)</h5> 
       <br></br>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       <br></br>
@@ -48,14 +51,12 @@ const About =() => (
     <img height="15px"src="https://pngimg.com/uploads/github/github_PNG20.png"></img> <a href="https://github.com/nicksemerad">Nick's Git Hub</a><br></br>
     <br></br>
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/nicholassemerad/">Nick's Linked In</a>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br> <br></br>
-    <br></br>
- 
-    <TonisProfile  src={ Toni}/> 
-    <h5 style={{color:'green'}}>Toni Galata (Favorite Color:Green)</h5> 
+      </CardText>
+    </Card>
+    <Card>
+      <CardImage src={ Toni } />
+      <CardText>
+      <h5 style={{color:'green'}}>Toni Galata (Favorite Color:Green)</h5> 
     <br></br>
     Toni Galata is your typical old Millennial with a love for technology, video games, and the internet in general. Her favorite things are: Harry Potter, tattoos, social justice, early-aughts emo music, drinks from Fiiz, bright colors and playing Diablo 3 with her husband. Toni is currently studying web development at Dev Point Labs, and looks forward to using code to solve all the world's problems, one bug at a time.
    
@@ -68,8 +69,13 @@ const About =() => (
     <br></br>
     <br></br>
     <br></br>
-    <MaxProfile src={ Max }/> 
-    <h5 style={{color:'#66CCCC '}}> Max Behling (Favorite Color: #66CCCC )</h5> Max is currently a full time web developer for an awesome tech company Doxy.me. They provide HIPPA compliant video conferencing software to thousands of professionals. Max claims Oregon as his home state but moved to Salt Lake city, Utah within the last year for his job. Max drinks copius amounts of coffee and writes a lot of code as the result! 
+      </CardText>
+      </Card>
+
+    <Card>
+      <CardImage src={ Max } />
+      <CardText>
+      <h5 style={{color:'#66CCCC '}}> Max Behling (Favorite Color: #66CCCC )</h5> Max is currently a full time web developer for an awesome tech company Doxy.me. They provide HIPPA compliant video conferencing software to thousands of professionals. Max claims Oregon as his home state but moved to Salt Lake city, Utah within the last year for his job. Max drinks copius amounts of coffee and writes a lot of code as the result! 
     <br></br>
     <br></br>
     <br></br>
@@ -79,8 +85,12 @@ const About =() => (
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/max-behling-614a8113a">Max's Linked In</a>
     <br></br>
     <br></br>
+      </CardText>
+      </Card>
     
-    <SamsProfile src={ Sam } alt="Sam"/>
+      <Card>
+      <CardImage src={ Sam } />
+      <CardText>
     <h5 style={{color:'pink'}}>Samuel William Julkunen(Favorite Color: Green)</h5>
     <br></br>Sam grew up in the mountains of Heber City, Utah. He has had a multitude of different jobs and expereince. He has lived overseas in China and also in Hawaii. He has been a bobsled driver and also spent the last four years as a stock broker with Fidelity investments. Sam hopes to bring a diverse personal and professional experience into his new endeavors within the wide world of coding and technology. He is currently in the process of launching a new company Susi Media which will serve as an Search Engine Optimization company. You will find him in the mountains fishing, swimming, or hiking on the weekends or on the tennis court. 
     <br></br>
@@ -90,6 +100,8 @@ const About =() => (
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/samueljulkunen/">Sam's Linked In</a>
     <br></br>
     <br></br>
+    </CardText>
+      </Card>
     </AboutDevs>
 
  </>
