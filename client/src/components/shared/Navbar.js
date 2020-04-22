@@ -25,8 +25,9 @@ class Navbar extends Component {
               </NavLink>
               <form style={styles.form}>
                 <input 
-                  style={styles.search} 
+                  style={styles.search}
                   type="text"
+                  disabled
                   placeholder="Search for Boards" />
                   <img style={styles.searchIcon} src={require('./search.png')} />
               </form>
@@ -51,7 +52,7 @@ class Navbar extends Component {
             <button
               id='login'
               name='login'
-              style={{display: 'none'}}
+              style={styles.login}
               active={location.pathname === '/login'}>
               Login
             </button>
@@ -60,7 +61,7 @@ class Navbar extends Component {
             <button
               id='register'
               name='register'
-              style={{display: 'none'}}
+              style={styles.login}
               active={location.pathname === '/register'}>
               Register
             </button>
@@ -121,6 +122,17 @@ const styles = {
   },
   myBoards: {
     position: 'absolute',
+    right: '24rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '16px',
+    fontFamily: 'Rubik',
+    color: 'black',
+    background: 'none',
+  },
+  login: {
+    marginTop: '30px',
+    marginLeft: '20px',
     right: '24rem',
     top: '3rem',
     border: 'none',
