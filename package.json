@@ -1,9 +1,26 @@
 {
-  "dependencies": {
-    "materialize-css": "^1.0.0-rc.2",
-    "react-materialize": "^3.8.5",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2",
-    "styled-components": "^5.1.0"
-  }
+  "name": "color-board",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devpointlabs/color-board.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devpointlabs/color-board/issues"
+  },
+  "homepage": "https://github.com/devpointlabs/color-board#readme"
 }

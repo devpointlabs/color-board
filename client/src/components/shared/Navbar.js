@@ -51,7 +51,7 @@ class Navbar extends Component {
             <button
               id='login'
               name='login'
-              style={{display: 'none'}}
+              style={{display: 'yes'}}
               active={location.pathname === '/login'}>
               Login
             </button>
@@ -60,7 +60,7 @@ class Navbar extends Component {
             <button
               id='register'
               name='register'
-              style={{display: 'none'}}
+              style={{display: 'yes'}}
               active={location.pathname === '/register'}>
               Register
             </button>
