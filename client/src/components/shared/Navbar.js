@@ -27,6 +27,17 @@ class Navbar extends Component {
               active={this.props.location.pathname === '/my_boards'}>
               My Boards
               </NavLink>
+              <NavLink 
+              to='/about'
+              activeStyle={{
+                borderBottom: '2px solid #D80179',
+              }}
+              style={styles.About}
+              name='about'
+              id='about'
+              active={this.props.location.pathname === '/about'}>
+              About
+              </NavLink>
               <form style={styles.form} onSubmit={this.noSubmit}>
                 <input 
                   style={styles.search}
@@ -41,7 +52,7 @@ class Navbar extends Component {
             </Link>
           </button>
           <Link to="/profile" >
-              <img src={ this.props.auth.user.image } style={styles.userIcon}/>
+              <img src={ this.props.auth.user.image || require('./user.png') }  style={styles.userIcon}/>
           </Link>
             <Link onClick={() => handleLogout(this.props.history)}>
               <img src={require('./logout.png')} style={styles.logout} />
@@ -124,12 +135,22 @@ const styles = {
     fontSize: '16px',
     fontFamily: 'Rubik',
   },
+  About: {
+    position: 'absolute',
+    right: '30.5rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '17px',
+    fontFamily: 'Rubik',
+    color: 'black',
+    background: 'none',
+  },
   myBoards: {
     position: 'absolute',
     right: '24rem',
     top: '3rem',
     border: 'none',
-    fontSize: '16px',
+    fontSize: '17px',
     fontFamily: 'Rubik',
     color: 'black',
     background: 'none',
