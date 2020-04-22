@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const ColorContext = React.createContext();
 export const ColorConsumer = ColorContext.Consumer;
@@ -17,19 +18,19 @@ class ColorProvider extends Component {
         })
     }
 
-    addColor = (boardId, color) => {
+    addColor = (boardId, color, history) => {
         axios.post(`/api/boards/${boardId}/colors`, color )
         .then( res => {
             const { colors } = this.state;
-            this.setState([...colors, res.data])
-            window.location.href = `/explore`
+            this.setState([...colors, res.data]);
+            history.go()
         })
         .catch( err => {
             console.log(err)
         })
     }
 
-    updateColor = ( boardId, colorId, color) => {
+    updateColor = ( boardId, colorId, color, history) => {
         axios.put(`/api/boards/${boardId}/colors/${colorId}`, color )
         .then( res => {
             const { colors } = this.state.colors.map( c => {
@@ -38,7 +39,7 @@ class ColorProvider extends Component {
                 return c;
             });
             this.setState({ colors });
-            window.location.href = `/explore`
+            history.push(`/boards/${boardId}`)
         })
         .catch( err => {
             console.log(err)
@@ -58,15 +59,17 @@ class ColorProvider extends Component {
 
     render() {
         return (
-            <ColorContext.Provider value={{
+            <Router>
+                <ColorContext.Provider value={{
                 ...this.state,
                 fetchColors: this.fetchColors,
                 addColor: this.addColor,
                 updateColor: this.updateColor,
                 deleteColor: this.deleteColor
-                }}>
+            }}>
                 { this.props.children }
-            </ColorContext.Provider>
+                </ColorContext.Provider>
+            </Router>
         )
     }
 }

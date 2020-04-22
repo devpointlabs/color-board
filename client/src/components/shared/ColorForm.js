@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {ColorConsumer} from '../../providers/ColorProvider';
+import { withRouter } from 'react-router-dom';
 
-const ColorForm = ({addColor, updateColor, color, board_id}) => {
+const ColorForm = ({addColor, updateColor, color, board_id, history }) => {
   const [red, setRed] = useState(0);
   const [green, setGreen] = useState(0);
   const [blue, setBlue] = useState(0);
@@ -56,9 +57,9 @@ const ColorForm = ({addColor, updateColor, color, board_id}) => {
       board_id: board_id
     }
     if (color) {
-      updateColor(color.board_id, color.id, newColor)
+      updateColor(color.board_id, color.id, newColor, history)
     } else {
-      addColor( newColor.board_id, newColor );
+      addColor( newColor.board_id, newColor, history );
     }
   }
   
@@ -126,4 +127,4 @@ const ConnectedColorForm = (props) => (
   </>
 )
 
-export default ConnectedColorForm;
+export default withRouter(ConnectedColorForm);
