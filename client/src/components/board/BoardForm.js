@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BoardConsumer } from "../../providers/BoardProvider";
 import { AutoInit } from "materialize-css";
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -22,10 +23,10 @@ class BoardForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault()
 		if(this.props.board.id) {
-			this.props.updateBoard(this.props.board.id, this.state)
+			this.props.updateBoard(this.props.board.id, this.state, this.props.history)
 			this.props.toggleForm()
 		} else {
-			this.props.addBoard(this.state)
+			this.props.addBoard(this.state, this.props.history)
 		}
 		this.setState({ title: '', desc: '' })
 	}
@@ -102,4 +103,4 @@ const ConnectedBoardForm = (props) => (
 	</BoardConsumer>  
 )
 
-export default ConnectedBoardForm; 
+export default withRouter(ConnectedBoardForm); 

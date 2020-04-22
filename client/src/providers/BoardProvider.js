@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 const BoardContext = React.createContext()
 export const BoardConsumer = BoardContext.Consumer;
 
@@ -27,19 +28,19 @@ class BoardProvider extends Component {
     })
   }
   
-  addBoard = (board) => {
+  addBoard = (board, history) => {
     axios.post('/api/boards', board)
     .then( res => {
       const { boards } = this.state;
-      this.setState({ boards: [...boards, res.data]})
-      window.location.href = `/explore`
+      this.setState({ boards: [...boards, res.data]});
+      history.push(`/boards/${res.data.id}`)
     })
     .catch( err => {
       console.log(err);
     })
   }
 
-  updateBoard = (id, board) => {
+  updateBoard = (id, board, history) => {
     axios.put(`/api/boards/${id}`, board)
       .then( res => {
         const { boards } = this.state.boards.map( b => {
@@ -48,7 +49,7 @@ class BoardProvider extends Component {
         return b;
       });
       this.setState({ boards });
-      window.location.href = `/explore`
+      history.go()
     })
     .catch( err => {
       console.log(err);
