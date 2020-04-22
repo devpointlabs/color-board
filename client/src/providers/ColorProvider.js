@@ -22,7 +22,7 @@ class ColorProvider extends Component {
         .then( res => {
             const { colors } = this.state;
             this.setState([...colors, res.data])
-            window.location.href = `/boards/${boardId}`
+            window.location.href = `/explore`
         })
         .catch( err => {
             console.log(err)
@@ -38,7 +38,7 @@ class ColorProvider extends Component {
                 return c;
             });
             this.setState({ colors });
-            window.location.href = `/boards/${boardId}`
+            window.location.href = `/explore`
         })
         .catch( err => {
             console.log(err)
