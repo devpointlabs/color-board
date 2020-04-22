@@ -1,11 +1,12 @@
 import React from "react";
-import { TopHeader, AboutSite, AboutDevs, Photo, SamsProfile, NicksProfile, TonisProfile, MaxProfile, Card, CardText, CardImage, } from "./AboutStyle";
+import { TopHeader, AboutSite, AboutDevs, Photo, SamsProfile, ContainerOne, ContainerTwo, ContainerThree, Card, CardText, CardImage, } from "./AboutStyle";
 import Person from "./Person.png";
 import Sam from "./Sam.png";
 import Nick from "./Nick.png";
 import Toni from "./Toni.png";
 import Max from "./Max.jpeg"
 import MainImage from "./MainImage.png"
+import { Grid } from 'react-materialize';
 
 const About =() => (
 <>  
@@ -17,8 +18,8 @@ const About =() => (
   <br></br>
   <br></br>
   
-  <AboutSite>
-    
+    <AboutSite> 
+
     <p><h3>About The Site</h3>
     <Photo src={ MainImage }/>
     <br></br>
@@ -36,25 +37,27 @@ const About =() => (
    
     </p>
   </AboutSite>
- 
-  <AboutDevs>
-  <h3>About the Developers</h3>
-  
+  <h3 style={{textAlign:"center", padding:"50px"}}>About the Developers</h3>
+  <AboutDevs >
     <Card>
-      <CardImage src={ Nick } />
+      <CardImage style={{  width: "170px", height: "210px"}} src={ Nick } />
       <CardText>
       <h5 style={{color: '#66CCCC'}} >Nick Semerand (Favorite Color: Teal)</h5> 
       <br></br>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      Born and raised in Utah, Nick is twenty years old and is sprinting into the tech-industry world. Currently becoming a full stack developer here at DevPoint Labs in Salt Lake city, he has big plans and is excited to gain skills and experience in the field. This website is the first project of many, and he hopes you’ll be there for the future projects to come!
       <br></br>
-    <br></br>
+      <br></br>
     <img height="15px"src="https://pngimg.com/uploads/github/github_PNG20.png"></img> <a href="https://github.com/nicksemerad">Nick's Git Hub</a><br></br>
     <br></br>
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/nicholassemerad/">Nick's Linked In</a>
+    <br></br>
+    <br></br>
+    <br></br>
+    
       </CardText>
     </Card>
-    <Card>
-      <CardImage src={ Toni } />
+     <Card >
+     <CardImage style={{  width: "170px", height: "210px"}} src={ Toni } />
       <CardText>
       <h5 style={{color:'green'}}>Toni Galata (Favorite Color:Green)</h5> 
     <br></br>
@@ -67,13 +70,14 @@ const About =() => (
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/toni-galata/">Toni's Linked In</a>
     <br></br>
     <br></br>
-    <br></br>
-    <br></br>
       </CardText>
       </Card>
-
-    <Card>
-      <CardImage src={ Max } />
+      </AboutDevs>
+     <br></br>
+     <br></br>
+    <ContainerOne>
+    <Card >
+      <CardImage style={{  width: "170px", height: "210px"}} src={ Max } />
       <CardText>
       <h5 style={{color:'#66CCCC '}}> Max Behling (Favorite Color: #66CCCC )</h5> Max is currently a full time web developer for an awesome tech company Doxy.me. They provide HIPPA compliant video conferencing software to thousands of professionals. Max claims Oregon as his home state but moved to Salt Lake city, Utah within the last year for his job. Max drinks copius amounts of coffee and writes a lot of code as the result! 
     <br></br>
@@ -85,13 +89,17 @@ const About =() => (
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/max-behling-614a8113a">Max's Linked In</a>
     <br></br>
     <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
       </CardText>
       </Card>
-    
+      
+      
       <Card>
-      <CardImage src={ Sam } />
+      <CardImage style={{  width: "170px", height: "210px"}} src={ Sam } />
       <CardText>
-    <h5 style={{color:'pink'}}>Samuel William Julkunen(Favorite Color: Green)</h5>
+    <h5 style={{color:'pink'}}>Samuel William Julkunen(Favorite Color: Pink)</h5>
     <br></br>Sam grew up in the mountains of Heber City, Utah. He has had a multitude of different jobs and expereince. He has lived overseas in China and also in Hawaii. He has been a bobsled driver and also spent the last four years as a stock broker with Fidelity investments. Sam hopes to bring a diverse personal and professional experience into his new endeavors within the wide world of coding and technology. He is currently in the process of launching a new company Susi Media which will serve as an Search Engine Optimization company. You will find him in the mountains fishing, swimming, or hiking on the weekends or on the tennis court. 
     <br></br>
     <br></br>
@@ -99,11 +107,10 @@ const About =() => (
     <br></br>
     <img height="15px" src="https://cdn2.iconfinder.com/data/icons/popular-social-media-flat/48/Popular_Social_Media-22-512.png"></img><a href="https://www.linkedin.com/in/samueljulkunen/">Sam's Linked In</a>
     <br></br>
-    <br></br>
     </CardText>
       </Card>
-    </AboutDevs>
-
+      </ContainerOne>
+          <br></br>
  </>
 );
 
