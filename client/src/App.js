@@ -19,6 +19,9 @@ const App = () => (
   <>
     <Navbar/>
     <FetchUser>
+    <div style={{
+         marginTop: '150px',
+        }}>
       <Switch>
         <Route exact path='/' component={Explore} />
         <Route exact path='/login' component={Login} />
@@ -34,6 +37,7 @@ const App = () => (
         <ProtectedRoute exact path='/newBoard' component={BoardForm}/> 
         <Route component={NoMatch} />
       </Switch>
+      </div>
     </FetchUser>
   </>
 )

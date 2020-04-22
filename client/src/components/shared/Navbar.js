@@ -3,6 +3,10 @@ import { Link, withRouter, NavLink } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 class Navbar extends Component {
+  
+  noSubmit(e) {
+    e.preventDefault();
+  }
 
   rightNavItems = () => {
     const { auth: { user, handleLogout }, location } = this.props
@@ -34,10 +38,11 @@ class Navbar extends Component {
               active={this.props.location.pathname === '/about'}>
               About
               </NavLink>
-              <form style={styles.form}>
+              <form style={styles.form} onSubmit={this.noSubmit}>
                 <input 
-                  style={styles.search} 
+                  style={styles.search}
                   type="text"
+                  disabled
                   placeholder="Search for Boards" />
                   <img style={styles.searchIcon} src={require('./search.png')} />
               </form>
@@ -62,7 +67,7 @@ class Navbar extends Component {
             <button
               id='login'
               name='login'
-              style={{display: 'none'}}
+              style={styles.login}
               active={location.pathname === '/login'}>
               Login
             </button>
@@ -71,7 +76,7 @@ class Navbar extends Component {
             <button
               id='register'
               name='register'
-              style={{display: 'none'}}
+              style={styles.login}
               active={location.pathname === '/register'}>
               Register
             </button>
@@ -146,6 +151,17 @@ const styles = {
     top: '3rem',
     border: 'none',
     fontSize: '17px',
+    fontFamily: 'Rubik',
+    color: 'black',
+    background: 'none',
+  },
+  login: {
+    marginTop: '30px',
+    marginLeft: '20px',
+    right: '24rem',
+    top: '3rem',
+    border: 'none',
+    fontSize: '16px',
     fontFamily: 'Rubik',
     color: 'black',
     background: 'none',

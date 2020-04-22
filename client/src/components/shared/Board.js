@@ -19,14 +19,13 @@ const Board = ({ title, desc }) => (
 					padding: '5rem',
           wordWrap: 'break-word',
 			    left: '4rem',
-			    top: '13rem',
-					width: '20rem',
-				  height: '18rem',
-          border: '1px solid lightgrey'
+					width: '18rem',
+				  height: '17rem',
+          border: '1px solid lightgrey',
 					//boxShadow: '-9px 11px 20px 1px lightgrey',
 				}}>
 					<span style={{
-						
+						position: 'relative',
 				    left: '1.5rem',
 				    top: '2rem',
 						fontWeight: 'bold',
@@ -36,25 +35,15 @@ const Board = ({ title, desc }) => (
 						{title}
 					</span>
 					<span style={{
-						
+						position: 'relative',
 				    left: '1.5rem',
-				    top: '5.5rem',
+				    top: '5rem',
 				    fontSize: '18px',
 				    fontFamily: 'Rubik',
-						wordWrap: 'break-word',
-						paddingRight: '3rem'
+						overflowWrap: 'break-word'
 					}}>
 						{desc} 
 					</span>
-					<img src={require('./user.png')} style={{
-					  height: '1.8rem',
-				    width: '1.8rem',
-				    
-				    right: '-0.3rem',
-				    top: '15.5rem',
-				    
-					}} />
-					
 					<Liked />
 					
 				</div>
