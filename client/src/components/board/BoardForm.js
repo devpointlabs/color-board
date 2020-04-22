@@ -39,11 +39,13 @@ class BoardForm extends Component {
 				borderRadius: '10px',
         borderBottom: '1px solid lightgrey',
         boxShadow: '2px 3px 8px 1px lightgrey',
-				width: '90%',
-				height: '10rem',
+				width: '50%',
+				height: '5rem',
         fontSize: '23px',
         fontFamily: 'Rubik',
-				textAlign: 'left'
+				textAlign: 'center',
+				marginLeft: '100px',
+				marginTop: '100px'
 			}}>Create a new board</h3>
 			<div style={{
 				width: '60%',
