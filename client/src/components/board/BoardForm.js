@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BoardConsumer } from "../../providers/BoardProvider";
+import { AutoInit } from "materialize-css";
 
 
 
@@ -33,20 +34,22 @@ class BoardForm extends Component {
 		const { title, desc } = this.state
 		return(
 			<div style={{ 
-				
-			}}>
-			<h3 style={{
 				borderRadius: '10px',
         borderBottom: '1px solid lightgrey',
         boxShadow: '2px 3px 8px 1px lightgrey',
-				width: '90%',
-				height: '10rem',
-        fontSize: '23px',
+				width: '80%',
+				height: 'auto',
+				marginLeft: 'auto',
+				marginRight: 'auto',
+				padding: '25px'
+			}}>
+			<h3 style={{
+        fontSize: '28px',
         fontFamily: 'Rubik',
-				textAlign: 'left'
-			}}>Create a new board</h3>
+				textAlign: 'center'
+			}}>Customize your Board</h3>
 			<div style={{
-				width: '60%',
+				width: '80%',
 				marginLeft: 'auto',
 				marginRight: 'auto',
 				textAlign: 'center',
