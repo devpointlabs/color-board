@@ -29,19 +29,14 @@ const Explore = () => (
 						value.boards.map( b =>
 							<div 
 								style={{
-									marginLeft: '10rem',
+									
 							 		display: 'flex', 
-									flexDirection: 'column'
+									flexDirection: 'row',
+									marginBottom: '2rem'
 								}}>
 								<Link to={`/boards/${b.id}`}> 
 								<Board {...b} />
 								</Link>
-								< br/>
-								< br/>
-								< br/>
-								< br/>
-								< br/>
-								< br/>
 							</div>
 							)
 					}

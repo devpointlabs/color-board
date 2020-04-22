@@ -3,6 +3,10 @@ import { Link, withRouter, NavLink } from 'react-router-dom';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
 class Navbar extends Component {
+  
+  noSubmit(e) {
+    e.preventDefault();
+  }
 
   rightNavItems = () => {
     const { auth: { user, handleLogout }, location } = this.props
@@ -23,7 +27,7 @@ class Navbar extends Component {
               active={this.props.location.pathname === '/my_boards'}>
               My Boards
               </NavLink>
-              <form style={styles.form}>
+              <form style={styles.form} onSubmit={this.noSubmit}>
                 <input 
                   style={styles.search}
                   type="text"
