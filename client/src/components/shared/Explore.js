@@ -22,9 +22,71 @@ const Explore = () => (
 					flexDirection: 'row',
 					flexWrap: 'wrap',
 					justifyContent: 'center',
-					marginTop: '11rem',
-					marginLeft: '20rem'
+					margin: '15rem 0 0 20rem'
 				}}>
+				<div style={{
+					position: 'absolute',
+			    left: '14.5rem',
+			    marginTop: '8.4rem',
+			    transform: 'translate(-50%, -50%)',
+					width: '20rem',
+				  height: '17rem',
+          border: 'none',
+					color: 'offwhite',
+					borderRadius: '10px 0 0 10px',
+					boxShadow: '-9px 11px 20px 1px lightgrey',
+				}}>
+					<img src={require('./heart.png')}
+						style={{
+							marginTop: '13.5rem',
+							marginLeft: '1.5rem',
+							width: '2.5rem',
+							height: 'auto'
+						}}
+					/>
+				</div>
+				<div style={{
+					position: 'absolute',
+			    left: '14.5rem',
+			    marginTop: '27.4rem',
+			    transform: 'translate(-50%, -50%)',
+					width: '20rem',
+				  height: '17rem',
+          border: 'none',
+					color: 'offwhite',
+					borderRadius: '10px 0 0 10px',
+					boxShadow: '-9px 11px 20px 1px lightgrey',
+				}}>
+					<img src={require('./heart.png')}
+						style={{
+							marginTop: '13.5rem',
+							marginLeft: '1.5rem',
+							width: '2.5rem',
+							height: 'auto'
+						}}
+					/>
+				</div>
+				<div style={{
+					position: 'absolute',
+			    left: '14.5rem',
+			    marginTop: '46.5rem',
+			    transform: 'translate(-50%, -50%)',
+					width: '20rem',
+				  height: '17rem',
+          border: 'none',
+					color: 'offwhite',
+					borderRadius: '10px 0 0 10px',
+					boxShadow: '-9px 11px 20px 1px lightgrey',
+				}}>
+					<img src={require('./heart.png')}
+						style={{
+							marginTop: '13.5rem',
+							marginLeft: '1.5rem',
+							width: '2.5rem',
+							height: 'auto'
+						}}
+					/>
+				</div>
 					{ 
 						value.boards.map( b =>
 							<div 

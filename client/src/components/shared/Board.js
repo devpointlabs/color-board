@@ -32,20 +32,22 @@ const Board = ({ title, desc }) => (
 				    fontSize: '18px',
 				    fontFamily: 'Rubik',
 					}}>
-						{title}
+						
 					</span>
 					<span style={{
 						position: 'relative',
-				    left: '1.5rem',
-				    top: '5rem',
+				    left: '2.5rem',
+				    top: '9.3rem',
 				    fontSize: '18px',
 				    fontFamily: 'Rubik',
-						overflowWrap: 'break-word'
+						overflowWrap: 'break-word',
+            background: 'lightgrey',
+            padding: '3px 7px 3px 7px',
+            borderRadius: '9px',
+            color: 'white'
 					}}>
 						{desc} 
-					</span>
-					<Liked />
-					
+					</span>	
 				</div>
   </Styles>
 )
