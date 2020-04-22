@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
-import { Form, Grid, Image, Container, Divider, Header, Button, } from 'semantic-ui-react';
+import { Form, Grid, Container, Divider, Header,  } from 'semantic-ui-react';
+import { Row, Col, Button }  from 'react-materialize';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
@@ -34,15 +35,15 @@ class Profile extends Component {
   profileView = () => {
     const { auth: { user }, } = this.props;
     return (
-      <>
-        <Grid.Column width={4}>
-          <Image src={user.image || defaultImage} />
-        </Grid.Column>
-        <Grid.Column width={8}>
+      <Row>
+        <Col l={4}>
+          <img style={{width: '200px', borderRadius:'50%'}} src={user.image || defaultImage} />
+        </Col>
+        <Col l={8}>
           <Header as="h1">{user.name}</Header>
           <Header as="h1">{user.email}</Header>
-        </Grid.Column>
-      </>
+        </Col>
+      </Row>
     )
   }
 
@@ -65,7 +66,7 @@ class Profile extends Component {
     const { formValues: { name, email, file } } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Grid.Column width={4}>
+        <Col width={4}>
           <Dropzone
             onDrop={this.onDrop}
             multiple={false}
@@ -87,8 +88,8 @@ class Profile extends Component {
               )
             }}
           </Dropzone>
-        </Grid.Column>
-        <Grid.Column width={8}>
+        </Col>
+        <Col width={8}>
           <Form.Input
             label="Name"
             name="name"
@@ -104,7 +105,7 @@ class Profile extends Component {
             onChange={this.handleChange}
           />
           <Button>Update</Button>
-        </Grid.Column>
+        </Col>
       </Form>
     )
   }
@@ -117,9 +118,9 @@ class Profile extends Component {
         <Grid>
           <Grid.Row>
             { editing ? this.editView() : this.profileView()}
-            <Grid.Column>
-              <Button onClick={this.toggleEdit}>{editing ? 'Cancel' : 'Edit'}</Button>
-            </Grid.Column>
+            <Col>
+              <Button onClick={this.toggleEdit} node="button" waves="light">{editing ? 'Cancel' : 'Edit'}</Button>
+            </Col>
           </Grid.Row>
         </Grid>
       </Container>
