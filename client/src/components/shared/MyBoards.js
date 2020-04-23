@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { BoardConsumer } from '../../providers/BoardProvider'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import Board from './Board';
 import styled from 'styled-components';
+
 
 const Styles = styled.div`
 	.center {
@@ -12,18 +13,23 @@ const Styles = styled.div`
 	}
 `
 
-const MyBoards = ({ user }) => (
-	<BoardConsumer> 
-    {
-			value =>
+class MyBoards extends Component {
+
+	componentDidMount() {
+		this.props.getUserBoards();
+	}
+
+	render() {
+		debugger
+		return(
 			<Styles>
 				<div style={{ 
-          display: 'flex',
+					display: 'flex',
 					flexDirection: 'row',
 					flexWrap: 'wrap',
 					justifyContent: 'center',
 					margin: '15rem 0 0 20rem'
-              }}>
+							}}>
 				<span 
 					style={{
 						position: 'absolute',
@@ -36,12 +42,12 @@ const MyBoards = ({ user }) => (
 				</span>
 				<div style={{
 					position: 'absolute',
-			    left: '14.5rem',
-			    marginTop: '8.4rem',
-			    transform: 'translate(-50%, -50%)',
+					left: '14.5rem',
+					marginTop: '8.4rem',
+					transform: 'translate(-50%, -50%)',
 					width: '20rem',
-				  height: '17rem',
-          border: 'none',
+					height: '17rem',
+					border: 'none',
 					color: 'offwhite',
 					borderRadius: '10px 0 0 10px',
 					boxShadow: '-9px 11px 20px 1px lightgrey',
@@ -57,12 +63,12 @@ const MyBoards = ({ user }) => (
 				</div>
 				<div style={{
 					position: 'absolute',
-			    left: '14.5rem',
-			    marginTop: '27.4rem',
-			    transform: 'translate(-50%, -50%)',
+					left: '14.5rem',
+					marginTop: '27.4rem',
+					transform: 'translate(-50%, -50%)',
 					width: '20rem',
-				  height: '17rem',
-          border: 'none',
+					height: '17rem',
+					border: 'none',
 					color: 'offwhite',
 					borderRadius: '10px 0 0 10px',
 					boxShadow: '-9px 11px 20px 1px lightgrey',
@@ -78,12 +84,12 @@ const MyBoards = ({ user }) => (
 				</div>
 				<div style={{
 					position: 'absolute',
-			    left: '14.5rem',
-			    marginTop: '46.5rem',
-			    transform: 'translate(-50%, -50%)',
+					left: '14.5rem',
+					marginTop: '46.5rem',
+					transform: 'translate(-50%, -50%)',
 					width: '20rem',
-				  height: '17rem',
-          border: 'none',
+					height: '17rem',
+					border: 'none',
 					color: 'offwhite',
 					borderRadius: '10px 0 0 10px',
 					boxShadow: '-9px 11px 20px 1px lightgrey',
@@ -97,41 +103,47 @@ const MyBoards = ({ user }) => (
 						}}
 					/>
 				</div>
-          { 
-            
-            value.boards.map( b =>
-              {
-                if (b.user_id === user.id) {
-                  return(
+					{ 
+						this.props.userBoards.map( b =>
+							{
+								if (b.user_id === this.props.user.id) {
+									return(
 										<div 
 											style={{
-										 		display: 'flex', 
+												display: 'flex', 
 												flexDirection: 'row',
 												marginBottom: '2rem'
 											}}>
-                    <Link to={`/boards/${b.id}`}>
-                      <Board {...b} />
-                    </Link>
+										<Link to={`/boards/${b.id}`}>
+											<Board {...b} />
+										</Link>
 										</div>
-                  )
-                }
-              }
-              )
-              
+									)
+								}
+							}
+						)
 					}
 				</div>
 			</Styles>
-		}
-	</BoardConsumer>
-)
+		)
+	}
+}
 
-const ConnectedMyBoards = (props) => (
+const AuthMyBoards = (props) => (
   <AuthConsumer>
     {
       value =>
       <MyBoards {...value} {...props}/>
     }
   </AuthConsumer>
+)
+const ConnectedMyBoards = (props) => (
+  <BoardConsumer>
+    {
+      value =>
+      <AuthMyBoards {...value} {...props}/>
+    }
+  </BoardConsumer>
 )
 
 export default ConnectedMyBoards;
