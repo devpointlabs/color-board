@@ -10,7 +10,7 @@ class Api::BoardsController < ApplicationController
   end 
 
   def userBoards
-    render json: current_user.boards
+    render json: current_user.boards.kept
   end
 
   def create

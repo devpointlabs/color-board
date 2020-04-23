@@ -6,7 +6,7 @@ const BoardContext = React.createContext()
 export const BoardConsumer = BoardContext.Consumer;
 
 class BoardProvider extends Component {
-  state = { boards: [], board: {}, colors: [] }
+  state = { boards: [], board: {}, colors: [], userBoards: [] }
 
   componentDidMount() {
     axios.get('/api/boards')
@@ -22,6 +22,16 @@ class BoardProvider extends Component {
     axios.get(`/api/boards/${id}`)
     .then( res => {
       this.setState({ board: res.data })
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
+
+  getUserBoards = () => {
+    axios.get('/api/current_user_boards')
+    .then( res => {
+      this.setState({ userBoards: res.data})
     })
     .catch( err => {
       console.log(err);
@@ -91,6 +101,7 @@ class BoardProvider extends Component {
         updateBoard: this.updateBoard,
         deleteBoard: this.deleteBoard,
         getBoard: this.getBoard,
+        getUserBoards: this.getUserBoards,
         getBoardColors: this.getBoardColors,
         clearBoard: this.clearBoard
       }}>
