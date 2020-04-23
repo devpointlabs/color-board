@@ -3,6 +3,7 @@ import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
 import { Button, Icon } from 'react-materialize';
 import ConnectedCopyPaste from '../shared/Clipboard';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
 class ColorShow extends Component {
   state = { showForm: false }
@@ -52,10 +53,18 @@ class ColorShow extends Component {
               width: '50%',
             }}>
             </div>
-            {this.updateColor()}
-            <Button onClick={() => this.props.deleteColor(board_id, id)}>
-              Delete
-            </Button>
+            {
+              this.props.location.state.boardUser === this.props.user.id ?
+              <>
+                {this.updateColor()}
+                <Button onClick={() => this.props.deleteColor(board_id, id)}>
+                  Delete
+                </Button>
+              </>
+              :
+              <>
+              </>
+            }
            <ConnectedCopyPaste colorName={colorName} />
          </div>
         </div>
@@ -66,7 +75,7 @@ class ColorShow extends Component {
 }
 
   
-const ConnectedColorShow = (props) => (
+const ColorColorShow = (props) => (
   <ColorConsumer> 
     {
       value =>
@@ -75,4 +84,14 @@ const ConnectedColorShow = (props) => (
   </ColorConsumer>
 )
 
+const ConnectedColorShow = (props) => (
+  <AuthConsumer> 
+    {
+      value =>
+      <ColorColorShow {...props} {...value} />
+    }
+  </AuthConsumer>
+)
+
 export default ConnectedColorShow;
+
