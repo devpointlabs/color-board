@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { BoardConsumer } from '../../providers/BoardProvider'
 import { AuthConsumer } from '../../providers/AuthProvider'
-import Board from './Board';
+import ConnectedBoard from './Board';
 import styled from 'styled-components';
 
 const Styles = styled.div`
@@ -19,89 +19,18 @@ class MyBoards extends Component {
 	}
 
 	render() {
-		debugger
 		return(
-			<Styles>
-				<div style={{ 
+			<div>
+				<span style={{
+					fontSize: '20px',
+					fontFamily: 'Rubik',
+				}}>My Boards</span>
+				<div style={{
 					display: 'flex',
-					flexDirection: 'row',
+					flexDirection: 'column',
 					flexWrap: 'wrap',
-					justifyContent: 'center',
 					margin: '15rem 0 0 20rem'
-							}}>
-				<span 
-					style={{
-						position: 'absolute',
-						left: '3rem',
-						top: '9rem',
-						fontSize: '20px',
-						fontFamily: 'Rubik',
-					}}>
-					My Boards
-				</span>
-				<div style={{
-					position: 'absolute',
-					left: '14.5rem',
-					marginTop: '8.4rem',
-					transform: 'translate(-50%, -50%)',
-					width: '20rem',
-					height: '17rem',
-					border: 'none',
-					color: 'offwhite',
-					borderRadius: '10px 0 0 10px',
-					boxShadow: '-9px 11px 20px 1px lightgrey',
 				}}>
-					<img src={require('./heart.png')}
-						style={{
-							marginTop: '13.5rem',
-							marginLeft: '1.5rem',
-							width: '2.5rem',
-							height: 'auto'
-						}}
-					/>
-				</div>
-				<div style={{
-					position: 'absolute',
-					left: '14.5rem',
-					marginTop: '27.4rem',
-					transform: 'translate(-50%, -50%)',
-					width: '20rem',
-					height: '17rem',
-					border: 'none',
-					color: 'offwhite',
-					borderRadius: '10px 0 0 10px',
-					boxShadow: '-9px 11px 20px 1px lightgrey',
-				}}>
-					<img src={require('./heart.png')}
-						style={{
-							marginTop: '13.5rem',
-							marginLeft: '1.5rem',
-							width: '2.5rem',
-							height: 'auto'
-						}}
-					/>
-				</div>
-				<div style={{
-					position: 'absolute',
-					left: '14.5rem',
-					marginTop: '46.5rem',
-					transform: 'translate(-50%, -50%)',
-					width: '20rem',
-					height: '17rem',
-					border: 'none',
-					color: 'offwhite',
-					borderRadius: '10px 0 0 10px',
-					boxShadow: '-9px 11px 20px 1px lightgrey',
-				}}>
-					<img src={require('./heart.png')}
-						style={{
-							marginTop: '13.5rem',
-							marginLeft: '1.5rem',
-							width: '2.5rem',
-							height: 'auto'
-						}}
-					/>
-				</div>
 					{ 
 						this.props.userBoards.map( b =>
 							{
@@ -113,17 +42,32 @@ class MyBoards extends Component {
 												flexDirection: 'row',
 												marginBottom: '2rem'
 											}}>
-										<Link to={`/boards/${b.id}`}>
-											<Board {...b} />
-										</Link>
+											<Link to={`/boards/${b.id}`}> 
+												<ConnectedBoard {...b} />
+											</Link>
 										</div>
 									)
 								}
 							}
 						)
 					}
+					</div>
+					<div style={{textAlign: 'center'}}>
+						<button style={{
+							alignItems: 'center',
+							border: 'none',
+							borderRadius: '40px',
+							background: '#EF94C6',
+							padding: '14px 30px 14px 30px',
+							fontSize: '16px',
+							fontFamily: 'Rubik',
+							color: 'white',
+							marginBottom: '20px',
+						}}>
+							Load More
+						</button>
 				</div>
-			</Styles>
+			</div>
 		)
 	}
 }
@@ -131,11 +75,12 @@ class MyBoards extends Component {
 const AuthMyBoards = (props) => (
   <AuthConsumer>
     {
-      value =>
+			value =>
       <MyBoards {...value} {...props}/>
     }
   </AuthConsumer>
 )
+
 const ConnectedMyBoards = (props) => (
   <BoardConsumer>
     {
