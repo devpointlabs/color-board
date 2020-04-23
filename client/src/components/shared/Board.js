@@ -67,7 +67,7 @@ class Board extends Component {
             height: 'auto',
           }}
         />
-        { this.state.userImg !== '' ?
+        { this.state.userImg !== '' && this.state.userImg !== null ?
           <img src={ this.state.userImg }
             style={{
               width: '40px',
