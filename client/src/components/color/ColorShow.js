@@ -35,46 +35,43 @@ class ColorShow extends Component {
     const { board_id, colorName, id } = this.props.location.state.color
       return(
         <>
-        <div style={{
-          width: '100%',
-          margin: '150px',
-        }}>
           <div style={{
-          margin: 'auto',
+            width: '100%',
+            margin: '150px',
           }}>
-        </div>
-        <div>
-          <h1>Color Details</h1>
-
-            <h2>{colorName}</h2>
             <div style={{
-              backgroundColor: `${colorName}`,
-              height: '100px',
-              width: '50%',
+            margin: 'auto',
             }}>
-            </div>
-            {
-              this.props.location.state.boardUser === this.props.user.id ?
-              <>
-                {this.updateColor()}
-                <Button onClick={() => this.props.deleteColor(board_id, id)}>
-                  Delete
-                </Button>
-              </>
-              :
-              <>
-              </>
-            }
-           <ConnectedCopyPaste colorName={colorName} />
-         </div>
-        </div>
+          </div>
+          <div>
+            <h1>Color Details</h1>
+              <h2>{colorName}</h2>
+              <div style={{
+                backgroundColor: `${colorName}`,
+                height: '100px',
+                width: '50%',
+              }}>
+              </div>
+              {
+                this.props.location.state.boardUser === this.props.user.id ?
+                <>
+                  {this.updateColor()}
+                  <Button onClick={() => this.props.deleteColor(board_id, id)}>
+                    Delete
+                  </Button>
+                </>
+                :
+                <>
+                </>
+              }
+             <ConnectedCopyPaste colorName={colorName} />
+           </div>
+          </div>
         </>
-      
       )
   }
 }
-
-  
+ 
 const ColorColorShow = (props) => (
   <ColorConsumer> 
     {
@@ -94,4 +91,3 @@ const ConnectedColorShow = (props) => (
 )
 
 export default ConnectedColorShow;
-
