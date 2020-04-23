@@ -19,7 +19,6 @@ class BoardShow extends Component {
   }
 
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
-
   
   updateBoard = () => {
     const { showForm } = this.state;
@@ -132,7 +131,6 @@ const styles = {
     textAlign: 'center'
   }
 }
-
 
 const BoardBoardShow = (props) => (
   <BoardConsumer> 
