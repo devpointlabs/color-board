@@ -14,15 +14,12 @@ const About =() => (
    About: ColorBoard
   </TopHeader>
   <br></br>
-  <br></br>
-  <br></br>
-  <br></br>
+
   
     <AboutSite> 
 
-    <p><h3>About The Site</h3>
+    <p><h2 style={{fontFamily: 'Rubik'}}>About The Site</h2>
     <Photo src={ MainImage }/>
-    <br></br>
     <h5 style={{ color: '#D80179' }} >The Backend</h5>
     This site was built from the ground up. We used Ruby on Rails for the backend server side language and React for the front end. Using Ruby on Rails provided us with a structural framework for all of the code we wrote to get to the end goal. 
     We began by working out the core functional elements of the site first. We built our models on the back end specifically to handle users, color boards, and colors. We made associations so that the users had many boards and the boards had many colors. This was to ensure that our data flow would work within SQL's parent to child relationship. This proved to be a challenge to find the right balance so that each bit of information was associated and would carry data to and from the client side to the backend along with the backend into our data server. 
