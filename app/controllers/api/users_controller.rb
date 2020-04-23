@@ -1,4 +1,8 @@
 class Api::UsersController < ApplicationController
+    def getImage
+      render json: User.find(params[:user_id]).image
+    end 
+    
     before_action :authenticate_user!
 
     def update
