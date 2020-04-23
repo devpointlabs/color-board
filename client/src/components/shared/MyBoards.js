@@ -13,15 +13,15 @@ class MyBoards extends Component {
 	render() {
 		return(
 			<div>
-				<span style={{
-					fontSize: '20px',
-					fontFamily: 'Rubik',
-				}}>My Boards</span>
+				<h2 style={{
+						fontFamily: 'Rubik',
+						textAlign: 'center'
+					}}>My Boards</h2>
 				<div style={{
 					display: 'flex',
 					flexDirection: 'column',
 					flexWrap: 'wrap',
-					margin: '15rem 0 0 20rem'
+					margin: '5rem 0 0 20rem'
 				}}>
 					{ 
 						this.props.userBoards.map( b =>

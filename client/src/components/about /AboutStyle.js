@@ -12,12 +12,13 @@ export const TopHeader = styled.h1`
     background-color: #D80179;
     width: 100%;
     position: relative;
-    top: 75px;
+    top: 25px;
     left: 2%;
     padding: 10px;
 `
 export const AboutSite = styled.body`
-top: 50%;
+margin: 30px;
+top: 25%;
 padding: 22px;
 text-align: center;
 
