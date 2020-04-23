@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { BoardConsumer } from '../../providers/BoardProvider'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import ConnectedBoard from './Board';
-import styled from 'styled-components';
-
-const Styles = styled.div`
-	.center {
-		margin-top: 100px;
-		float: left;
-	}
-`
 
 class MyBoards extends Component {
 
