@@ -46,6 +46,7 @@ const MyBoards = ({ user }) => (
 					borderRadius: '10px 0 0 10px',
 					boxShadow: '-9px 11px 20px 1px lightgrey',
 				}}>
+				
 					<img src={require('./heart.png')}
 						style={{
 							marginTop: '13.5rem',
