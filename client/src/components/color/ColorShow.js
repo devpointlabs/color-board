@@ -3,6 +3,7 @@ import { ColorConsumer } from '../../providers/ColorProvider';
 import ColorForm from '../shared/ColorForm';
 import { Button, Icon } from 'react-materialize';
 import ConnectedCopyPaste from '../shared/Clipboard';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
 class ColorShow extends Component {
   state = { showForm: false }
@@ -34,45 +35,59 @@ class ColorShow extends Component {
     const { board_id, colorName, id } = this.props.location.state.color
       return(
         <>
-        <div style={{
-          width: '100%',
-          margin: '150px',
-        }}>
           <div style={{
-          margin: 'auto',
+            width: '100%',
+            margin: '150px',
           }}>
-        </div>
-        <div>
-          <h1>Color Details</h1>
-
-            <h2>{colorName}</h2>
             <div style={{
-              backgroundColor: `${colorName}`,
-              height: '100px',
-              width: '50%',
+            margin: 'auto',
             }}>
-            </div>
-            {this.updateColor()}
-            <Button onClick={() => this.props.deleteColor(board_id, id)}>
-              Delete
-            </Button>
-           <ConnectedCopyPaste colorName={colorName} />
-         </div>
-        </div>
+          </div>
+          <div>
+            <h1>Color Details</h1>
+              <h2>{colorName}</h2>
+              <div style={{
+                backgroundColor: `${colorName}`,
+                height: '100px',
+                width: '50%',
+              }}>
+              </div>
+              {
+                this.props.location.state.boardUser === this.props.user.id ?
+                <>
+                  {this.updateColor()}
+                  <Button onClick={() => this.props.deleteColor(board_id, id)}>
+                    Delete
+                  </Button>
+                </>
+                :
+                <>
+                </>
+              }
+             <ConnectedCopyPaste colorName={colorName} />
+           </div>
+          </div>
         </>
-      
       )
   }
 }
-
-  
-const ConnectedColorShow = (props) => (
+ 
+const ColorColorShow = (props) => (
   <ColorConsumer> 
     {
       value =>
       <ColorShow {...props} {...value} />
     }
   </ColorConsumer>
+)
+
+const ConnectedColorShow = (props) => (
+  <AuthConsumer> 
+    {
+      value =>
+      <ColorColorShow {...props} {...value} />
+    }
+  </AuthConsumer>
 )
 
 export default ConnectedColorShow;

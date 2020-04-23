@@ -4,6 +4,7 @@ import { BoardConsumer } from '../../providers/BoardProvider';
 import BoardForm from '../board/BoardForm';
 import ColorForm from './ColorForm'
 import { Link } from 'react-router-dom';
+import { AuthConsumer} from '../../providers/AuthProvider';
 
 class BoardShow extends Component {
   state = { showForm: false, colorForms: [] }
@@ -18,7 +19,6 @@ class BoardShow extends Component {
   }
 
   toggleForm = () => this.setState({ showForm: !this.state.showForm })
-
   
   updateBoard = () => {
     const { showForm } = this.state;
@@ -61,11 +61,19 @@ class BoardShow extends Component {
           }}>
             <h2><b>{title}</b></h2>
             <h3>{desc}</h3>
-            {this.updateBoard()}
+            {
+              this.props.user.id === this.props.board.user_id ?
+              <>
+                {this.updateBoard()}
 
-            <Button onClick={() => this.props.deleteBoard(id)}>
-              delete
-            </Button>
+                <Button onClick={() => this.props.deleteBoard(id)}>
+                  delete
+                </Button>
+              </>
+              :
+              <>
+              </>
+            }
             </div>
 
            
@@ -80,7 +88,7 @@ class BoardShow extends Component {
                 <Link 
                   style={styles.h5} 
                   to={{ pathname:`/boards/${this.props.match.params.id}/colors/${c.id}`, 
-                  state: {color: {...c}} }}>
+                  state: {color: {...c}, boardUser: this.props.board.user_id}}}>
                   {c.hex}
                 </Link>
               </div>
@@ -96,8 +104,15 @@ class BoardShow extends Component {
                 marginTop: '25px',
                 textAlign: 'center',
               }}>
-              <Button
-              onClick={() => this.addColorForm()}>Add Color</Button>
+                {
+                  this.props.user.id === this.props.board.user_id ?
+                    <Button
+                    onClick={() => this.addColorForm()}>Add Color
+                    </Button>
+                  :
+                  <>
+                  </>
+                }
               </div>
 		        }
         </>
@@ -107,8 +122,7 @@ class BoardShow extends Component {
   
 const styles = {
   h5: {
-    color: 'white',
-    
+    color: 'white'
   },
 
   centerButton: {
@@ -118,14 +132,22 @@ const styles = {
   }
 }
 
-
-const ConnectedBoardShow = (props) => (
+const BoardBoardShow = (props) => (
   <BoardConsumer> 
     {
       value =>
       <BoardShow {...props} {...value} />
     }
   </BoardConsumer>
+)
+
+const ConnectedBoardShow = (props) => (
+  <AuthConsumer> 
+    {
+      value =>
+      <BoardBoardShow {...props} {...value} />
+    }
+  </AuthConsumer>
 )
 
 export default ConnectedBoardShow;
