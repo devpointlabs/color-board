@@ -5,7 +5,6 @@ import { AuthConsumer } from '../../providers/AuthProvider'
 import Board from './Board';
 import styled from 'styled-components';
 
-
 const Styles = styled.div`
 	.center {
 		margin-top: 100px;
