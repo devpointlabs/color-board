@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :users, only: :update
     get '/board_colors/:id', to: 'boards#board_colors'
   end
-
+  get '*other', to: 'static#index'
 end
 
