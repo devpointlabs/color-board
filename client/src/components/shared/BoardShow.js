@@ -61,19 +61,19 @@ class BoardShow extends Component {
           }}>
             <h2><b>{title}</b></h2>
             <h3>{desc}</h3>
-//             {
-//               this.props.user.id === this.props.board.user_id ?
-//               <>
+            {
+              this.props.user.id === this.props.board.user_id ?
+              <>
                 {this.updateBoard()}
 
                 <Button onClick={() => this.props.deleteBoard(id)}>
                   delete
                 </Button>
-//               </>
-//               :
-//               <>
-//               </>
-//             }
+              </>
+              :
+              <>
+              </>
+            }
             </div>
 
            
