@@ -16,7 +16,7 @@ const Explore = () => (
 						display: 'flex',
 						flexDirection: 'column',
 						flexWrap: 'wrap',
-						margin: '4rem 0 0 20rem'
+						margin: '4rem 0 0 5rem'
 					}}>
 						{ 
 							value.boards.map( b =>
