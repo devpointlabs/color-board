@@ -21,7 +21,7 @@ class MyBoards extends Component {
 					display: 'flex',
 					flexDirection: 'column',
 					flexWrap: 'wrap',
-					margin: '5rem 0 0 20rem'
+					margin: '5rem 0 0 5rem'
 				}}>
 					{ 
 						this.props.userBoards.map( b =>
